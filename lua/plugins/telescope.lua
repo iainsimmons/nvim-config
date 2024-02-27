@@ -1,169 +1,169 @@
 local telescope_egrepify = function()
-  require('telescope').extensions.egrepify.egrepify {
+  require("telescope").extensions.egrepify.egrepify({
     vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-      '--trim', -- add this value
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--trim", -- add this value
     },
-  }
+  })
 end
 return {
   {
-    'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope.nvim",
     dependencies = {
-      'kkharji/sqlite.lua',
-      { 'prochri/telescope-all-recent.nvim', opts = {} },
-      'natecraddock/telescope-zf-native.nvim',
-      'piersolenski/telescope-import.nvim',
-      'fdschmidt93/telescope-egrepify.nvim',
+      "kkharji/sqlite.lua",
+      { "prochri/telescope-all-recent.nvim", opts = {} },
+      "natecraddock/telescope-zf-native.nvim",
+      "piersolenski/telescope-import.nvim",
+      "fdschmidt93/telescope-egrepify.nvim",
       {
-        'danielfalk/smart-open.nvim',
-        branch = '0.2.x',
+        "danielfalk/smart-open.nvim",
+        branch = "0.2.x",
         config = function() end,
         dependencies = {
-          'kkharji/sqlite.lua',
-          { 'nvim-telescope/telescope-fzy-native.nvim' },
+          "kkharji/sqlite.lua",
+          { "nvim-telescope/telescope-fzy-native.nvim" },
         },
       },
     },
     keys = {
       {
-        '<leader>ff',
+        "<leader>ff",
         function()
-          require('telescope').extensions.smart_open.smart_open {
+          require("telescope").extensions.smart_open.smart_open({
             cwd_only = true,
             filename_first = true,
-          }
+          })
         end,
         noremap = true,
         silent = true,
-        desc = 'Telescope Smart Open',
+        desc = "Telescope Smart Open",
       },
       {
-        '<leader><space>',
-        '<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>',
+        "<leader><space>",
+        "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
         noremap = true,
         silent = true,
-        desc = 'Switch Buffer',
+        desc = "Switch Buffer",
       },
       {
-        '<leader>?',
-        require('telescope.builtin').oldfiles,
-        desc = 'Find recently opened files',
+        "<leader>?",
+        require("telescope.builtin").oldfiles,
+        desc = "Find recently opened files",
       },
       {
-        '<leader>fg',
-        require('telescope.builtin').git_files,
-        desc = 'Find Git files',
+        "<leader>fg",
+        require("telescope.builtin").git_files,
+        desc = "Find Git files",
       },
       {
-        '<leader>fi',
-        ':Telescope import<CR>',
-        desc = '[F]ind [I]mports',
+        "<leader>fi",
+        ":Telescope import<CR>",
+        desc = "[F]ind [I]mports",
         silent = true,
       },
       {
-        '<leader>/',
+        "<leader>/",
         telescope_egrepify,
         silent = true,
         noremap = true,
-        desc = 'Live Grep (Telescope egrepify)',
+        desc = "Live Grep (Telescope egrepify)",
       },
       {
-        '<leader>sg',
+        "<leader>sg",
         telescope_egrepify,
         silent = true,
-        desc = 'Live Grep (Telescope egrepify)',
+        desc = "Live Grep (Telescope egrepify)",
       },
     },
     -- change some options
     config = function(_, opts)
-      local telescope = require 'telescope'
+      local telescope = require("telescope")
       telescope.setup(opts)
-      telescope.load_extension 'zf-native'
-      telescope.load_extension 'import'
-      telescope.load_extension 'smart_open'
-      telescope.load_extension 'egrepify'
+      telescope.load_extension("zf-native")
+      telescope.load_extension("import")
+      telescope.load_extension("smart_open")
+      telescope.load_extension("egrepify")
     end,
     opts = {
       defaults = {
         file_ignore_patterns = {
-          '^static/',
-          '^matrix-files/',
-          '^dist/',
-          '^.git/',
-          'package-lock.json',
-          '*.lock',
+          "^static/",
+          "^matrix-files/",
+          "^dist/",
+          "^.git/",
+          "package-lock.json",
+          "*.lock",
         },
-        layout_strategy = 'horizontal',
+        layout_strategy = "horizontal",
         layout_config = {
           height = 0.90,
           width = 0.90,
           preview_cutoff = 0,
           horizontal = { preview_width = 0.60 },
           vertical = { width = 0.55, height = 0.9, preview_cutoff = 0 },
-          prompt_position = 'top',
+          prompt_position = "top",
         },
-        path_display = { 'smart' },
-        prompt_prefix = ' ',
-        selection_caret = ' ',
-        sorting_strategy = 'ascending',
+        path_display = { "smart" },
+        prompt_prefix = " ",
+        selection_caret = " ",
+        sorting_strategy = "ascending",
         winblend = 0,
         vimgrep_arguments = {
-          'rg',
-          '--color=never',
-          '--no-heading',
-          '--hidden',
-          '--with-filename',
-          '--line-number',
-          '--column',
-          '--smart-case',
-          '--trim', -- add this value
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--hidden",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--trim", -- add this value
         },
       },
       pickers = {
         find_files = {
           -- Find files with Telescope, with grep, including hidden, ignoring .git
-          find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
         },
         buffers = {
-          prompt_prefix = '󰸩 ',
+          prompt_prefix = "󰸩 ",
         },
         commands = {
-          prompt_prefix = ' ',
+          prompt_prefix = " ",
           layout_config = {
             height = 0.63,
             width = 0.78,
           },
         },
         command_history = {
-          prompt_prefix = ' ',
+          prompt_prefix = " ",
           layout_config = {
             height = 0.63,
             width = 0.58,
           },
         },
         git_files = {
-          prompt_prefix = '󰊢 ',
+          prompt_prefix = "󰊢 ",
           show_untracked = true,
         },
         live_grep = {
-          prompt_prefix = '󰱽 ',
+          prompt_prefix = "󰱽 ",
         },
         grep_string = {
-          prompt_prefix = '󰱽 ',
+          prompt_prefix = "󰱽 ",
         },
         undo = {
-          prompt_prefix = '↩ ',
+          prompt_prefix = "↩ ",
         },
       },
       extensions = {
-        ['zf-native'] = {
+        ["zf-native"] = {
           file = { -- options for sorting file-like items
             enable = true, -- override default telescope file sorter
             highlight_results = true, -- highlight matching text in results
@@ -224,8 +224,8 @@ return {
             -- example prompt: ! sorter
             -- matches all lines that do not comprise sorter
             -- rg --invert-match -- sorter
-            ['?'] = {
-              flag = 'hidden',
+            ["?"] = {
+              flag = "hidden",
             },
           },
         },
