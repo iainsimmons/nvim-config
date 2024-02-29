@@ -107,15 +107,15 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 })
 
 -- Disable the plugin in Lazy.nvim
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lazy",
-  callback = function()
-    local previous = not require("lsp_lines").toggle()
-    if not previous then
-      require("lsp_lines").toggle()
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "lazy",
+--   callback = function()
+--     local previous = not require("lsp_lines").toggle()
+--     if not previous then
+--       require("lsp_lines").toggle()
+--     end
+--   end,
+-- })
 
 -- Use html.handlebars for hbs files
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
@@ -128,4 +128,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*tmux.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",
+})
+
+vim.api.nvim_create_autocmd("WinLeave", {
+  callback = function()
+    if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
+    end
+  end,
 })
