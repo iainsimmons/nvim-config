@@ -60,7 +60,6 @@ return {
       vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "Find recently opened files" })
       vim.keymap.set("n", "<leader>fg", require("telescope.builtin").git_files, { desc = "Find Git files" })
       vim.keymap.set("n", "<leader>fi", ":Telescope import<CR>", { desc = "[F]ind [I]mports", silent = true })
-      vim.keymap.set("n", "<leader>/", telescope_egrepify, { silent = true, noremap = true, desc = "Live Grep (Telescope egrepify)" })
       vim.keymap.set("n", "<leader>sg", telescope_egrepify, { silent = true, desc = "Live Grep (Telescope egrepify)" })
       vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
       vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
@@ -74,13 +73,13 @@ return {
       -- vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
       -- Slightly advanced example of overriding default behavior and theme
-      -- vim.keymap.set("n", "<leader>/", function()
-      --   -- You can pass additional configuration to telescope to change theme, layout, etc.
-      --   builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-      --     winblend = 10,
-      --     previewer = false,
-      --   }))
-      -- end, { desc = "[/] Fuzzily search in current buffer" })
+      vim.keymap.set("n", "<leader>/", function()
+        -- You can pass additional configuration to telescope to change theme, layout, etc.
+        builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+          winblend = 10,
+          previewer = false,
+        }))
+      end, { desc = "[/] Fuzzily search in current buffer" })
 
       -- Also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
@@ -120,7 +119,7 @@ return {
         prompt_prefix = " ",
         selection_caret = " ",
         sorting_strategy = "ascending",
-        winblend = 0,
+        winblend = 10,
         vimgrep_arguments = {
           "rg",
           "--color=never",
