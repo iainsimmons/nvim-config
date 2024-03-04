@@ -1,4 +1,30 @@
 return {
+  { -- Useful plugin to show you pending keybinds.
+    "folke/which-key.nvim",
+    event = "VeryLazy", -- Sets the loading event to 'VeryLazy'
+    opts = {
+      plugins = { spelling = true },
+      defaults = {
+        mode = { "n", "v" },
+        ["<leader>b"] = { name = "+buffer" },
+        ["<leader>c"] = { name = "+code" },
+        ["<leader>f"] = { name = "+file/find" },
+        ["<leader>g"] = { name = "+git" },
+        ["<leader>q"] = { name = "+quit/session" },
+        ["<leader>s"] = { name = "+search" },
+        ["<leader>u"] = { name = "+ui" },
+        ["<leader>w"] = { name = "+windows" },
+        ["<leader>x"] = { name = "+diagnostics/quickfix" },
+      },
+    },
+    config = function(_, opts) -- This is the function that runs, AFTER loading
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.register(opts.defaults)
+      local presets = require("which-key.plugins.presets")
+      presets.operators["d"] = nil
+    end,
+  },
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
@@ -104,45 +130,6 @@ return {
     end,
   },
   {
-    "folke/noice.nvim",
-    opts = {
-      lsp = {
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
-        },
-      },
-      routes = {
-        {
-          filter = {
-            event = "msg_show",
-            any = {
-              { find = "%d+L, %d+B" },
-              { find = "; after #%d+" },
-              { find = "; before #%d+" },
-            },
-          },
-          view = "mini",
-        },
-        {
-          filter = {
-            event = "notify",
-            find = "Client %d+ quit with exit code 1 and signal 0",
-          },
-          opts = { stop = true },
-        },
-      },
-      presets = {
-        bottom_search = false, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = true, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
-      },
-    },
-  },
-  {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
@@ -167,10 +154,6 @@ return {
   },
   {
     "folke/which-key.nvim",
-    opts = function(_, opts)
-      local presets = require("which-key.plugins.presets")
-      presets.operators["d"] = nil
-    end,
   },
   {
     "rasulomaroff/reactive.nvim",
