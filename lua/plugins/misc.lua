@@ -4,25 +4,6 @@ return {
     "tpope/vim-sleuth",
     event = { "BufNewFile", "BufReadPre" },
   },
-  -- See `:help gitsigns` to understand what the configuration keys do
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    "lewis6991/gitsigns.nvim",
-    event = { "BufNewFile", "BufReadPost" },
-    opts = {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
-    },
-  },
-  {
-    "ruifm/gitlinker.nvim",
-    event = { "BufNewFile", "BufReadPost" },
-    dependencies = "nvim-lua/plenary.nvim",
-  },
   {
     "davidgranstrom/nvim-markdown-preview",
     ft = { "md", "markdown" },
