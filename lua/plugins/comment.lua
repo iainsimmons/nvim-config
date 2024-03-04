@@ -1,7 +1,7 @@
 return {
   {
     "numToStr/Comment.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufNewFile" },
     opts = {
       pre_hook = function()
         if vim.bo.filetype == "hurl" then
@@ -11,5 +11,10 @@ return {
     },
   },
   -- Highlight todo, notes, etc in comments
-  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
+  {
+    "folke/todo-comments.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { signs = false },
+  },
 }

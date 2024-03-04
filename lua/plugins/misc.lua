@@ -1,8 +1,13 @@
 return {
-  "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+  {
+    -- Detect tabstop and shiftwidth automatically
+    "tpope/vim-sleuth",
+    event = { "BufNewFile", "BufReadPre" },
+  },
   -- See `:help gitsigns` to understand what the configuration keys do
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
+    event = { "BufNewFile", "BufReadPost" },
     opts = {
       signs = {
         add = { text = "+" },
@@ -15,6 +20,7 @@ return {
   },
   {
     "ruifm/gitlinker.nvim",
+    event = { "BufNewFile", "BufReadPost" },
     dependencies = "nvim-lua/plenary.nvim",
   },
   {
@@ -95,7 +101,7 @@ return {
   },
   {
     "tzachar/highlight-undo.nvim",
-    event = { "VeryLazy" },
+    event = { "BufReadPost", "BufNewFile" },
     opts = {
       duration = 300,
       undo = {

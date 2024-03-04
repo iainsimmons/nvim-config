@@ -145,6 +145,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
       options = {
         buffer_close_icon = "",
