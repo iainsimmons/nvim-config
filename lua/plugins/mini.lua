@@ -2,20 +2,22 @@ return { -- Collection of various small independent plugins/modules
   "echasnovski/mini.nvim",
   event = "VeryLazy",
   config = function()
-    -- Better Around/Inside textobjects
-    --
-    -- Examples:
-    --  - va)  - [V]isually select [A]round [)]parenthen
-    --  - yinq - [Y]ank [I]nside [N]ext [']quote
-    --  - ci'  - [C]hange [I]nside [']quote
-    require("mini.ai").setup({ n_lines = 500 })
+    require("mini.ai").setup({
+      -- Better Around/Inside textobjects
+      --
+      -- Examples:
+      --  - va)  - [V]isually select [A]round [)]parenthen
+      --  - yinq - [Y]ank [I]nside [N]ext [']quote
+      --  - ci'  - [C]hange [I]nside [']quote
+      n_lines = 500,
+    })
 
-    -- Add/delete/replace surroundings (brackets, quotes, etc.)
-    --
-    -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-    -- - sd'   - [S]urround [D]elete [']quotes
-    -- - sr)'  - [S]urround [R]eplace [)] [']
     require("mini.surround").setup({
+      -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      --
+      -- - gsaiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+      -- - gsd'   - [S]urround [D]elete [']quotes
+      -- - gsr)'  - [S]urround [R]eplace [)] [']
       mappings = {
         add = "gsa", -- Add surrounding in Normal and Visual modes
         delete = "gsd", -- Delete surrounding
@@ -27,9 +29,8 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
-    -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
     require("mini.bracketed").setup()
+
     require("mini.comment").setup({
       options = {
         custom_commentstring = function()
@@ -37,6 +38,7 @@ return { -- Collection of various small independent plugins/modules
         end,
       },
     })
+
     require("mini.files").setup({
       content = {
         filter = function(entry)
