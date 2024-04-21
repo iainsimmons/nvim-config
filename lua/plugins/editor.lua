@@ -28,38 +28,25 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
+    dependencies = { "RRethy/base16-nvim", { "abeldekat/harpoonline", version = "*" } },
     opts = function()
-      -- Show harpoon marks in lualine:
-      -- https://twitter.com/dillon_mulroy/status/1658310366919643137?s=20
-      local harpoon = require("harpoon.mark")
       local noice = require("noice")
-
-      local function harpoon_component()
-        local total_marks = harpoon.get_length()
-
-        if total_marks == 0 then
-          return ""
-        end
-
-        local current_mark = "-"
-
-        local mark_idx = harpoon.get_current_index()
-        if mark_idx ~= nil then
-          current_mark = tostring(mark_idx)
-        end
-
-        return string.format("󱡅 %s/%d", current_mark, total_marks)
-      end
+      local Harpoonline = require("harpoonline")
+      Harpoonline.setup({
+        on_update = function()
+          require("lualine").refresh()
+        end,
+      })
 
       return {
         options = {
-          theme = "auto",
+          theme = "base16",
           globalstatus = true,
           disabled_filetypes = { statusline = { "dashboard", "alpha" } },
         },
         sections = {
           lualine_a = { "mode" },
-          lualine_b = { { harpoon_component } },
+          lualine_b = { { Harpoonline.format, "filename" } },
           lualine_c = {
             {
               "diagnostics",
@@ -125,7 +112,8 @@ return {
             --   end,
           },
         },
-        extensions = { "neo-tree", "lazy" },
+        -- extensions = { "neo-tree", "lazy" },
+        extensions = { "lazy" },
       }
     end,
   },
