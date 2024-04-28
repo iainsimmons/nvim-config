@@ -38,6 +38,7 @@
   "nui.nvim": { "branch": "main", "commit": "cbd2668414331c10039278f558630ed19b93e69b" },
   "nvim-bqf": { "branch": "main", "commit": "52703d7adc3be3f7c09eea9a80c5b8caa615fb25" },
   "nvim-cmp": { "branch": "main", "commit": "8f3c541407e691af6163e2447f3af1bd6e17f9a3" },
+  "nvim-lint": { "branch": "master", "commit": "f098232d70cebe90e27404928c9bc19ca7a5a7b5" },
   "nvim-lspconfig": { "branch": "master", "commit": "7133e85c3df14a387da8942c094c7edddcdef309" },
   "nvim-markdown-preview": { "branch": "master", "commit": "3d6f941beb223b23122973d077522e9e2ee33068" },
   "nvim-navic": { "branch": "master", "commit": "8649f694d3e76ee10c19255dece6411c29206a54" },

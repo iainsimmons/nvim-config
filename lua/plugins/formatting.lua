@@ -32,4 +32,14 @@ return {
       rss = { "xmlformatter" },
     },
   },
+  keys = {
+    {
+      "<leader>cf",
+      function()
+        require("conform").format({ async = true, timeout_ms = 500, lsp_fallback = true })
+      end,
+      mode = "",
+      desc = "[F]ormat buffer",
+    },
+  },
 }
