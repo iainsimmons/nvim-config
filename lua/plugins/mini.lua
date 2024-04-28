@@ -1,6 +1,15 @@
 return { -- Collection of various small independent plugins/modules
   "echasnovski/mini.nvim",
   event = "VeryLazy",
+  dependencies = {
+    {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      lazy = true,
+      opts = {
+        enable_autocmd = false,
+      },
+    },
+  },
   config = function()
     require("mini.ai").setup({
       -- Better Around/Inside textobjects
