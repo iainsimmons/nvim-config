@@ -3,7 +3,7 @@ return {
     "tinted-theming/base16-vim",
     lazy = false,
     priority = 1000,
-    config = function()
+    init = function()
       local cmd = vim.cmd
       local g = vim.g
       local current_theme_name = os.getenv("BASE16_THEME") or "default-dark"
