@@ -113,6 +113,9 @@ return {
           return true
         end, opts.ensure_installed)
       end
+
+      -- Prefer git instead of curl in order to improve connectivity in some environments
+      require("nvim-treesitter.install").prefer_git = true
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
