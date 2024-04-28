@@ -28,15 +28,10 @@ return {
         exclude = {
           filetypes = {
             "help",
-            "alpha",
             "dashboard",
-            "neo-tree",
-            "Trouble",
             "lazy",
             "mason",
             "notify",
-            "toggleterm",
-            "lazyterm",
           },
         },
       })
