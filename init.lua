@@ -8,13 +8,10 @@ vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, for help with jumping.
---  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -64,15 +61,15 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+
 -- additional options
 require("config.options")
 
--- [[ Basic Keymaps ]]
+-- [[ Keymaps ]]
 --  See `:help vim.keymap.set()`
 --  moved to imported file below
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
--- additional keymaps
 require("config.keymaps")
 
 -- [[ Basic Autocommands ]]
@@ -92,8 +89,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- additional autocmds
 require("config.autocmds")
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -101,17 +96,6 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins, you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
 require("lazy").setup({
   defaults = {
     -- set to `true` to have all custom plugins lazy-loaded by default
@@ -131,8 +115,6 @@ require("lazy").setup({
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
         "netrwPlugin",
         "tarPlugin",
         "tohtml",
@@ -142,64 +124,6 @@ require("lazy").setup({
     },
   },
   spec = {
-    -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-    --
-    -- NOTE: Moved vim-sleuth to `/lua/plugins/misc.lua
-    --
-    -- NOTE: Plugins can also be added by using a table,
-    -- with the first argument being the link and the following
-    -- keys can be used to configure plugin behavior/loading/etc.
-    --
-    -- Use `opts = {}` to force a plugin to be loaded.
-    --
-    --  This is equivalent to:
-    --    require('Comment').setup({})
-    --
-    -- NOTE: Moved Comment to `/lua/plugins/comment.lua`
-    --
-    -- Here is a more advanced example where we pass configuration
-    -- options to `gitsigns.nvim`. This is equivalent to the following lua:
-    --    require('gitsigns').setup({ ... })
-    --
-    -- NOTE: Moved gitsigns to `/lua/plugins/misc.lua
-    --
-    -- NOTE: Plugins can also be configured to run lua code when they are loaded.
-    --
-    -- This is often very useful to both group configuration, as well as handle
-    -- lazy loading plugins that don't need to be loaded immediately at startup.
-    --
-    -- For example, in the following configuration, we use:
-    --  event = 'VeryLazy'
-    --
-    -- which loads which-key after all the UI elements are loaded. Events can be
-    -- normal autocommands events (:help autocomd-events).
-    --
-    -- Then, because we use the `config` key, the configuration only runs
-    -- after the plugin has been loaded:
-    --  config = function() ... end
-    --
-    -- NOTE: Moved which-key to `lua/plugins/editor.lua`
-    --
-    -- NOTE: Plugins can specify dependencies.
-    --
-    -- The dependencies are proper plugin specifications as well - anything
-    -- you do for a plugin at the top level, you can do for a dependency.
-    --
-    -- Use the `dependencies` key to specify the dependencies of a particular plugin
-
-    -- NOTE: Moved LSP to `lua/plugins/lsp.lua`
-    --
-    -- NOTE: Moved conform to `lua/plugins/formatting.lua`
-    --
-    -- NOTE: Moved nvim-cmp to `lua/plugins/completions.lua`
-    --
-    -- NOTE: Moved todo-comments to `/lua/plugins/comment.lua`
-    --
-    -- NOTE: Moved mini to `/lua/plugins/mini.lua`
-    --
-    -- NOTE: Moved treesitter to `/lua/plugins/treesitter.lua`
-    --
-    -- import plugins
     { import = "plugins" },
   },
 }, {
