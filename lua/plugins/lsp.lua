@@ -32,7 +32,7 @@ return {
           map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
           -- Find references for the word under your cursor.
-          map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+          map("gR", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
@@ -66,25 +66,7 @@ return {
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header
           map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-          -- The following two autocommands are used to highlight references of the
-          -- word under your cursor when your cursor rests there for a little while.
-          --    See `:help CursorHold` for information about when this is executed
-          --
-          -- When you move your cursor, the highlights will be cleared (the second autocommand).
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.server_capabilities.documentHighlightProvider then
-            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-              buffer = event.buf,
-              callback = vim.lsp.buf.document_highlight,
-            })
-
-            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-              buffer = event.buf,
-              callback = vim.lsp.buf.clear_references,
-            })
-          end
-        end,
+        end
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()

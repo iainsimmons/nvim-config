@@ -124,7 +124,7 @@ return { -- Collection of various small independent plugins/modules
 
       -- Replace text with register
       replace = {
-        prefix = "gp",
+        prefix = "gr",
 
         -- Whether to reindent new text to match previous indent
         reindent_linewise = true,
