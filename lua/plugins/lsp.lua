@@ -66,7 +66,7 @@ return {
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header
           map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        end
+        end,
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -113,9 +113,12 @@ return {
                 -- If lua_ls is really slow on your computer, you can try this instead:
                 library = { vim.env.VIMRUNTIME },
               },
+              completion = {
+                callSnippet = "Replace",
+              },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
               diagnostics = {
+                disable = { "missing-fields" },
                 -- Get the language server to recognize the `vim` global
                 globals = { "vim", "nvim_bufferline" },
               },
@@ -196,15 +199,8 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            require("lspconfig")[server_name].setup({
-              cmd = server.cmd,
-              settings = server.settings,
-              filetypes = server.filetypes,
-              -- This handles overriding only values explicitly passed
-              -- by the server configuration above. Useful when disabling
-              -- certain features of an LSP (for example, turning off formatting for tsserver)
-              capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {}),
-            })
+            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+            require("lspconfig")[server_name].setup(server)
           end,
         },
       })
