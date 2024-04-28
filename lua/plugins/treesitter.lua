@@ -65,6 +65,7 @@ return {
         "json5",
         "jsonc",
         "lua",
+        "luadoc",
         "markdown",
         "markdown_inline",
         "regex",
