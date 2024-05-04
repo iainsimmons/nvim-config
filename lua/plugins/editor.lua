@@ -42,7 +42,7 @@ return {
         options = {
           theme = "base16",
           globalstatus = true,
-          disabled_filetypes = { statusline = { "dashboard" } },
+          disabled_filetypes = { statusline = { "dashboard", "yazi" } },
         },
         sections = {
           lualine_a = { "mode" },
