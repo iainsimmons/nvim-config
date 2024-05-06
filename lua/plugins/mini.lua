@@ -360,6 +360,25 @@ return { -- Collection of various small independent plugins/modules
           end,
           extmark_opts = { priority = 2000 },
         },
+        base16_slashes = {
+          pattern = function()
+            local filepath = vim.api.nvim_buf_get_name(0)
+            local base16_match = string.find(filepath, "base16[_-]shell")
+            if base16_match == nil then
+              return
+            end
+            return "()%x%x/%x%x/%x%x()"
+          end,
+          group = function(_, _, data)
+            ---@type string
+            local match = data.full_match
+            local r, g, b = match:sub(1, 2), match:sub(4, 5), match:sub(7, 8)
+            local hex_color = "#" .. r .. g .. b
+
+            return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
+          end,
+          extmark_opts = { priority = 2000 },
+        },
         tailwind = {
           pattern = function()
             local ft = { "typescriptreact", "javascriptreact", "css", "javascript", "typescript", "html", "svelte", "astro" }
