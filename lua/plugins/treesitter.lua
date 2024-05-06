@@ -58,6 +58,7 @@ return {
         "astro",
         "bash",
         "css",
+        "diff",
         "gitignore",
         "hurl",
         "jsdoc",
