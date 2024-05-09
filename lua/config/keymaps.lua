@@ -140,7 +140,7 @@ map("n", "<leader>rf", ":! open %:h<CR>", { desc = "[R]eveal [F]older of current
 
 map("n", "<leader>ga", ":! git add -f %<CR>", { desc = "[G]it [A]dd (force) current file", silent = true })
 
-map("n", "<leader>cc", ":%y+", { desc = "[C]opy [C]urrent file", silent = true })
+map("n", "<leader>cc", ":%y+<CR>", { desc = "[C]opy [C]urrent file", silent = true })
 
 -- https://github.com/stevedylandev/dotfiles/blob/main/nvim/lua/keymaps.lua
 -- If I visually select words and paste from clipboard, don't replace my
