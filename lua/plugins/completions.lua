@@ -111,11 +111,6 @@ return { -- Autocompletion
       }, {
         { name = "buffer" },
       }),
-      experimental = {
-        ghost_text = {
-          hl_group = "CmpGhostText",
-        },
-      },
       sorting = defaults.sorting,
     })
     cmp.setup.cmdline(":", {
