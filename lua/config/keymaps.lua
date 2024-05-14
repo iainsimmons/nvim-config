@@ -26,15 +26,6 @@ map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]ui
 -- or just use <C-\><C-n> to exit terminal mode
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
--- map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
--- map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
--- map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
--- map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-
 --
 -- [[ Stolen from LazyVim ]]
 --
@@ -64,9 +55,6 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
 map("i", ";", ";<c-g>u")
-
--- save file
--- map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- better indenting
 map("v", "<", "<gv")
