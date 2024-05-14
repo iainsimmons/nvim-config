@@ -340,7 +340,7 @@ return { -- Collection of various small independent plugins/modules
         basic = true,
 
         -- Extra UI features ('winblend', 'cmdheight=0', ...)
-        extra_ui = true,
+        extra_ui = false,
 
         -- Presets for window borders ('single', 'double', ...)
         win_borders = "default",
@@ -353,7 +353,7 @@ return { -- Collection of various small independent plugins/modules
 
         -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
         -- Supply empty string to not create these mappings.
-        option_toggle_prefix = "t",
+        option_toggle_prefix = [[\]],
 
         -- Window navigation with <C-hjkl>, resize with <C-arrow>
         windows = true,
