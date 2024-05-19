@@ -314,15 +314,6 @@ local M = {
 return { -- Collection of various small independent plugins/modules
   "echasnovski/mini.nvim",
   event = "VeryLazy",
-  dependencies = {
-    {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      lazy = true,
-      opts = {
-        enable_autocmd = false,
-      },
-    },
-  },
   config = function()
     require("mini.ai").setup({
       -- Better Around/Inside textobjects
@@ -377,13 +368,13 @@ return { -- Collection of various small independent plugins/modules
 
     require("mini.bracketed").setup()
 
-    require("mini.comment").setup({
-      options = {
-        custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
-        end,
-      },
-    })
+    -- require("mini.comment").setup({
+    --   options = {
+    --     custom_commentstring = function()
+    --       return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+    --     end,
+    --   },
+    -- })
 
     local hi = require("mini.hipatterns")
     hi.setup({
