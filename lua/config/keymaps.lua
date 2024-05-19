@@ -163,3 +163,5 @@ map("x", "/", "<Esc>/\\%V", { silent = true })
 
 -- Gitsigns toggle line blame
 map("n", "<leader>gl", ":Gitsigns toggle_current_line_blame<CR>", { silent = true, desc = "[G]itsigns toggle current [L]ine blame" })
+
+map("n", "-", "<CMD>Oil<CR>", { desc = "Oil - Open parent directory" })
