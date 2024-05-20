@@ -37,6 +37,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### comment
 
++ native comments in Neovim 0.10.0!
 + [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 + [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
 + [JoosepAlviste/nvim-ts-context-commentstring](https://dotfyle.com/plugins/JoosepAlviste/nvim-ts-context-commentstring)
@@ -125,7 +126,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### snippet
 
-+ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
++ native snippets in Neovim 0.10.0!
 + [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
 
 ### startup
