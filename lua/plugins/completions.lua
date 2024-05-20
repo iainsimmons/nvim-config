@@ -3,53 +3,8 @@ return { -- Autocompletion
   version = false,
   event = "InsertEnter",
   dependencies = {
-    -- Snippet Engine & its associated nvim-cmp source
-    {
-      "L3MON4D3/LuaSnip",
-      build = (function()
-        -- Build Step is needed for regex support in snippets
-        -- This step is not supported in many windows environments
-        -- Remove the below condition to re-enable on windows
-        if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-          return
-        end
-        return "make install_jsregexp"
-      end)(),
-      dependencies = {
-        {
-          "rafamadriz/friendly-snippets",
-          config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-          end,
-        },
-      },
-      keys = {
-        {
-          "<tab>",
-          function()
-            return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-          end,
-          expr = true,
-          silent = true,
-          mode = "i",
-        },
-        {
-          "<tab>",
-          function()
-            require("luasnip").jump(1)
-          end,
-          mode = "s",
-        },
-        {
-          "<s-tab>",
-          function()
-            require("luasnip").jump(-1)
-          end,
-          mode = { "i", "s" },
-        },
-      },
-    },
-    "saadparwaiz1/cmp_luasnip",
+    { "rafamadriz/friendly-snippets" },
+    { "garymjr/nvim-snippets", opts = { friendly_snippets = true } },
 
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
@@ -68,17 +23,12 @@ return { -- Autocompletion
   config = function()
     -- See `:help cmp`
     local cmp = require("cmp")
-    local luasnip = require("luasnip")
-    luasnip.setup({
-      history = true,
-      delete_check_events = "TextChanged",
-    })
     local defaults = require("cmp.config.default")()
 
     cmp.setup({
       snippet = {
         expand = function(args)
-          luasnip.lsp_expand(args.body)
+          vim.snippet.expand(args.body)
         end,
       },
       completion = { completeopt = "menu,menuone,noinsert" },
@@ -103,11 +53,25 @@ return { -- Autocompletion
           cmp.abort()
           fallback()
         end,
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if vim.snippet.active({ direction = 1 }) then
+            vim.snippet.jump(1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["S-<Tab>"] = cmp.mapping(function(fallback)
+          if vim.snippet.active({ direction = -1 }) then
+            vim.snippet.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "path" },
-        { name = "luasnip" },
+        { name = "snippets" },
       }, {
         { name = "buffer" },
       }),
@@ -127,7 +91,5 @@ return { -- Autocompletion
       }),
     })
     -- friendly-snippets - enable standardized comments snippets
-    luasnip.filetype_extend("typescript", { "tsdoc" })
-    luasnip.filetype_extend("javascript", { "jsdoc" })
   end,
 }
