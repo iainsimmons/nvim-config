@@ -482,7 +482,7 @@ return { -- Collection of various small independent plugins/modules
 
       -- Sort text
       sort = {
-        prefix = "gs",
+        prefix = "go",
 
         -- Function which does the sort
         func = nil,

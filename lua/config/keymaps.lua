@@ -107,8 +107,6 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>y", '"+y')
 map("v", "<leader>y", '"+y')
 map("n", "<leader>Y", '"+Y')
-map("n", "<leader>d", '"_d')
-map("v", "<leader>d", '"_d')
 map("n", "x", '"_x')
 
 -- increment & decrement
