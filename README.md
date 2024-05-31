@@ -6,7 +6,7 @@
 
 ## Install Instructions
 
- > Install requires Neovim 0.9+. Always review the code before installing a configuration.
+ > Install requires Neovim 0.10+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
@@ -46,6 +46,12 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 + [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
 
+### debugging
+
++ [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
++ [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
++ [theHamsta/nvim-dap-virtual-text](https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text)
+
 ### dependency-management
 
 + [piersolenski/telescope-import.nvim](https://dotfyle.com/plugins/piersolenski/telescope-import.nvim)
@@ -57,6 +63,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### file-explorer
 
++ [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
 + [mikavilpas/yazi.nvim](https://dotfyle.com/plugins/mikavilpas/yazi.nvim)
 
 ### formatting
@@ -126,7 +133,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### snippet
 
-+ native snippets in Neovim 0.10.0!
++ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
 + [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
 
 ### startup
