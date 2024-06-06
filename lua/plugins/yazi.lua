@@ -25,5 +25,8 @@ return {
   ---@type YaziConfig
   opts = {
     open_for_directories = true,
+    set_keymappings_function = function(yazi_buffer_id)
+      vim.keymap.set("n", "q", "<CMD>q<CR>", { buffer = yazi_buffer_id, silent = true })
+    end,
   },
 }
