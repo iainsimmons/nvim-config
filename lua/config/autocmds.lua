@@ -106,17 +106,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   end,
 })
 
--- Disable the plugin in Lazy.nvim
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lazy",
-  callback = function()
-    local previous = not require("lsp_lines").toggle()
-    if not previous then
-      require("lsp_lines").toggle()
-    end
-  end,
-})
-
 -- Use html.handlebars for hbs files
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   pattern = "*.hbs",

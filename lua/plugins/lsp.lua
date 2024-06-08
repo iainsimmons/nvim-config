@@ -213,26 +213,6 @@ return {
       })
     end,
   },
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    event = { "LspAttach" },
-    commit = "cf2306d",
-    config = function()
-      require("lsp_lines").setup()
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
-    end,
-    keys = {
-      {
-        "<leader>uL",
-        function()
-          require("lsp_lines").toggle()
-        end,
-        desc = "Toggle LSP Lines",
-      },
-    },
-  },
   -- Incremental rename
   {
     "smjonas/inc-rename.nvim",
