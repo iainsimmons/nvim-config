@@ -12,6 +12,38 @@ return {
         changedelete = { text = "~" },
       },
     },
+    keys = {
+      {
+        "[h",
+        "<CMD>Gitsigns prev_hunk<CR>",
+        desc = "Git: previous hunk",
+      },
+      {
+        "]h",
+        "<CMD>Gitsigns next_hunk<CR>",
+        desc = "Git: next hunk",
+      },
+      {
+        "<leader>gh",
+        "<CMD>Gitsigns preview_hunk<CR>",
+        desc = "[G]it Preview [H]unk",
+      },
+      {
+        "<leader>gr",
+        "<CMD>Gitsigns reset_hunk<CR>",
+        desc = "[G]it [R]eset Hunk",
+      },
+      {
+        "<leader>gs",
+        "<CMD>Gitsigns stage_hunk<CR>",
+        desc = "[G]it [S]tage Hunk",
+      },
+      {
+        "<leader>gu",
+        "<CMD>Gitsigns undo_stage_hunk<CR>",
+        desc = "[G]it [U]ndo Stage Hunk",
+      },
+    },
   },
   {
     "ruifm/gitlinker.nvim",
