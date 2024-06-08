@@ -60,6 +60,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 + [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
 + [nat-418/boole.nvim](https://dotfyle.com/plugins/nat-418/boole.nvim)
++ [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
 
 ### file-explorer
 
@@ -98,6 +99,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 + [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
 + [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
 + [smjonas/inc-rename.nvim](https://dotfyle.com/plugins/smjonas/inc-rename.nvim)
++ [folke/lazydev.nvim](https://dotfyle.com/plugins/folke/lazydev.nvim)
 
 ### lsp-installer
 
@@ -118,7 +120,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### nvim-dev
 
-+ [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
 + [kkharji/sqlite.lua](https://dotfyle.com/plugins/kkharji/sqlite.lua)
 + [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
@@ -130,6 +131,10 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ### quickfix
 
 + [kevinhwang91/nvim-bqf](https://dotfyle.com/plugins/kevinhwang91/nvim-bqf)
+
+### search
+
++ [MagicDuck/grug-far.nvim](https://dotfyle.com/plugins/MagicDuck/grug-far.nvim)
 
 ### snippet
 
