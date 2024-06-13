@@ -162,7 +162,7 @@ map("x", "/", "<Esc>/\\%V", { silent = true })
 -- Gitsigns toggle line blame
 map("n", "<leader>gl", ":Gitsigns toggle_current_line_blame<CR>", { silent = true, desc = "[G]itsigns toggle current [L]ine blame" })
 
-map("n", "-", "<CMD>Oil<CR>", { desc = "Oil - Open parent directory" })
+map("n", "-", "<CMD>Oil --float<CR>", { desc = "Oil - Open parent directory" })
 
 -- A couple of nice keymaps from Dev Ops Toolbox on YouTube
 -- https://www.youtube.com/watch?v=x__SZUuLOxw
