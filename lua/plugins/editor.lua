@@ -4,24 +4,24 @@ return {
     event = "VeryLazy", -- Sets the loading event to 'VeryLazy'
     opts = {
       plugins = { spelling = true },
-      defaults = {
-        mode = { "n", "v" },
-        ["<leader>b"] = { name = "+buffer" },
-        ["<leader>c"] = { name = "+code" },
-        ["<leader>f"] = { name = "+file/find" },
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>q"] = { name = "+quit/session" },
-        ["<leader>s"] = { name = "+search" },
-        ["<leader>t"] = { name = "+toggle" },
-        ["<leader>u"] = { name = "+ui" },
-        ["<leader>w"] = { name = "+windows" },
-        ["<leader>x"] = { name = "+diagnostics/quickfix" },
-      },
     },
     config = function(_, opts) -- This is the function that runs, AFTER loading
       local wk = require("which-key")
       wk.setup(opts)
-      wk.register(opts.defaults)
+      wk.add({
+        mode = { "n", "v" },
+        { "<leader>b", group = "buffer" },
+        { "<leader>c", group = "code" },
+        { "<leader>d", group = "debug" },
+        { "<leader>f", group = "file/find" },
+        { "<leader>g", group = "git" },
+        { "<leader>q", group = "quit/session" },
+        { "<leader>s", group = "search" },
+        { "<leader>t", group = "toggle" },
+        { "<leader>u", group = "ui" },
+        { "<leader>w", group = "windows" },
+        { "<leader>x", group = "diagnostics/quickfix" },
+      })
       local presets = require("which-key.plugins.presets")
       presets.operators["d"] = nil
     end,
