@@ -368,13 +368,13 @@ return { -- Collection of various small independent plugins/modules
 
     require("mini.bracketed").setup()
 
-    -- require("mini.comment").setup({
-    --   options = {
-    --     custom_commentstring = function()
-    --       return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
-    --     end,
-    --   },
-    -- })
+    require("mini.comment").setup({
+      options = {
+        custom_commentstring = function()
+          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+        end,
+      },
+    })
 
     local hi = require("mini.hipatterns")
     hi.setup({
