@@ -1,30 +1,41 @@
+local default_theme = "base16-tokyo-night-terminal-dark"
+
+local function get_tinty_theme()
+  local theme_name = vim.fn.system("tinty current &> /dev/null && tinty current")
+
+  if vim.v.shell_error ~= 0 then
+    return default_theme
+  else
+    return theme_name
+  end
+end
+
+local function disable_transparent_bg()
+  if vim.g.base16_background_transparent == 1 then
+    local current_theme_name = vim.g.colors_name
+    vim.g.base16_background_transparent = 0
+    vim.cmd("colorscheme " .. current_theme_name)
+    vim.notify("transparent background disabled")
+  end
+end
+
 return {
   {
     "tinted-theming/base16-vim",
     lazy = false,
     priority = 1000,
-    init = function()
-      local default_theme = "base16-oceanicnext"
+    config = function()
+      vim.api.nvim_create_user_command("TransparentBGDisable", disable_transparent_bg, {
+        desc = "Disable transparent background",
+      })
+      vim.keymap.set("n", [[\t]], disable_transparent_bg, { desc = "Disable transparent background" })
 
-      local function get_tinty_theme()
-        local theme_name = vim.fn.system("tinty current &> /dev/null && tinty current")
+      vim.o.termguicolors = true
+      vim.g.tinted_colorspace = 256
+      vim.g.base16_background_transparent = 1
+      local current_theme_name = get_tinty_theme()
 
-        if vim.v.shell_error ~= 0 then
-          return default_theme
-        else
-          return theme_name
-        end
-      end
-
-      local function main()
-        vim.o.termguicolors = true
-        vim.g.tinted_colorspace = 256
-        local current_theme_name = get_tinty_theme()
-
-        vim.cmd("colorscheme " .. current_theme_name)
-      end
-
-      main()
+      vim.cmd("colorscheme " .. current_theme_name)
     end,
   },
   {
