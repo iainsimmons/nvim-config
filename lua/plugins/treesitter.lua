@@ -48,9 +48,6 @@ return {
       { "<bs>", desc = "Decrement selection", mode = "x" },
     },
     opts = {
-      autotag = {
-        enable = true,
-      },
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
@@ -119,6 +116,27 @@ return {
       require("nvim-treesitter.install").prefer_git = true
       require("nvim-treesitter.configs").setup(opts)
     end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "astro",
+      "glimmer",
+      "handlebars",
+      "html",
+      "javascript",
+      "jsx",
+      "markdown",
+      "php",
+      "rescript",
+      "svelte",
+      "tsx",
+      "twig",
+      "typescript",
+      "vue",
+      "xml",
+    },
+    config = true,
   },
   {
     "danymat/neogen",
