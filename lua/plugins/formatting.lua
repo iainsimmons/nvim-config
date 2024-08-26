@@ -8,7 +8,15 @@ return {
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
-      return { timeout_ms = 1000, lsp_fallback = true, quiet = true }
+      -- languages here or re-enable it for the disabled ones.
+      local disable_filetypes = { c = true, cpp = true }
+      local lsp_format_opt
+      if disable_filetypes[vim.bo[bufnr].filetype] then
+        lsp_format_opt = "never"
+      else
+        lsp_format_opt = "fallback"
+      end
+      return { timeout_ms = 1000, lsp_format = lsp_format_opt, quiet = true }
     end,
     formatters_by_ft = {
       lua = { "stylua" },
@@ -70,7 +78,7 @@ return {
     {
       "<leader>cf",
       function()
-        require("conform").format({ async = true, timeout_ms = 1000, lsp_fallback = true })
+        require("conform").format({ async = true, timeout_ms = 1000, lsp_format = "fallback" })
       end,
       mode = "n",
       desc = "[F]ormat buffer",
