@@ -6,7 +6,7 @@
 
 ## Install Instructions
 
- > Install requires Neovim 0.10+. Always review the code before installing a configuration.
+> Install requires Neovim 0.10+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
@@ -108,6 +108,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ### markdown-and-latex
 
 + [davidgranstrom/nvim-markdown-preview](https://dotfyle.com/plugins/davidgranstrom/nvim-markdown-preview)
++ [MeanderingProgrammer/render-markdown.nvim](https://dotfyle.com/plugins/MeanderingProgrammer/render-markdown.nvim)
 
 ### marks
 
