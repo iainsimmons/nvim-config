@@ -166,3 +166,6 @@ map("n", "-", "<CMD>Oil --float<CR>", { desc = "Oil - Open parent directory" })
 -- https://www.youtube.com/watch?v=x__SZUuLOxw
 map("n", "E", "$", { noremap = false })
 map("n", "B", "_", { noremap = false })
+
+-- select all / entire buffer
+map("n", "<leader>va", "ggVG", { silent = true, noremap = true, desc = "[V]isual Select [A]ll" })
