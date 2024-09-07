@@ -180,7 +180,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 + marksman
 + svelte
 + tailwindcss
-+ tsserver
++ ts_ls
 + yamlls
 
 ## Formatters
