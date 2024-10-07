@@ -1,15 +1,3 @@
-local default_theme = "base16-tokyo-night-terminal-dark"
-
-local function get_tinty_theme()
-  local theme_name = vim.fn.system("tinty current &> /dev/null && tinty current")
-
-  if vim.v.shell_error ~= 0 then
-    return default_theme
-  else
-    return theme_name
-  end
-end
-
 local function disable_transparent_bg()
   if vim.g.base16_background_transparent == 1 then
     local current_theme_name = vim.g.colors_name
@@ -31,11 +19,11 @@ return {
       vim.keymap.set("n", [[\t]], disable_transparent_bg, { desc = "Disable transparent background" })
 
       vim.o.termguicolors = true
-      vim.g.tinted_colorspace = 256
+      -- Access colors present in 256 colorspace
+      vim.g.base16_colorspace = 256
       vim.g.base16_background_transparent = 1
-      local current_theme_name = get_tinty_theme()
-
-      vim.cmd("colorscheme " .. current_theme_name)
+      -- set from https://github.com/FabioAntunes/base16-fish-shell
+      vim.cmd("source ~/.vimrc_background")
     end,
   },
   {
