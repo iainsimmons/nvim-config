@@ -111,8 +111,8 @@ map("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 map("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
 -- cycle buffers
-map("n", "<C-Tab>", ":bnext<CR>", { desc = "Next Buffer", silent = true })
-map("n", "<CS-Tab>", ":bprev<CR>", { desc = "Previous Buffer", silent = true })
+map("n", "<Tab>", ":bnext<CR>", { desc = "Next Buffer", silent = true, noremap = true })
+map("n", "<S-Tab>", ":bprev<CR>", { desc = "Previous Buffer", silent = true, noremap = true })
 
 -- Yank whole function / object
 -- https://twitter.com/Adib_Hanna/status/1662310859962548224
