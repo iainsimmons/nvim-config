@@ -214,23 +214,4 @@ return {
       })
     end,
   },
-  -- Incremental rename
-  {
-    "smjonas/inc-rename.nvim",
-    event = { "BufNewFile", "BufReadPost" },
-    dependencies = {
-      "folke/noice.nvim",
-    },
-    cmd = "IncRename",
-    config = function()
-      ---@diagnostic disable-next-line: missing-parameter
-      require("inc_rename").setup()
-      require("noice").setup({
-        presets = { inc_rename = true },
-      })
-      vim.keymap.set("n", "<leader>cr", function()
-        return ":IncRename " .. vim.fn.expand("<cword>")
-      end, { expr = true, desc = "Incremental Rename" })
-    end,
-  },
 }
