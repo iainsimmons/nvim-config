@@ -8,6 +8,7 @@ return {
       lint.linters_by_ft = {
         markdown = { "markdownlint" },
       }
+      lint.linters.markdownlint.args = { "--disable", "MD013", "--" }
 
       -- Create autocommand which carries out the actual linting
       -- on the specified events.
