@@ -38,7 +38,10 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- buffers
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer", silent = true, noremap = true })
+map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Previous Buffer", silent = true, noremap = true })
+map("n", "<leader>bb", "<cmd>b#<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader><Tab>", "<cmd>b#<cr>", { desc = "Switch to Other Buffer" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
@@ -109,10 +112,6 @@ map("n", "x", '"_x')
 -- increment & decrement
 map("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 map("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
-
--- cycle buffers
-map("n", "<Tab>", ":bnext<CR>", { desc = "Next Buffer", silent = true, noremap = true })
-map("n", "<S-Tab>", ":bprev<CR>", { desc = "Previous Buffer", silent = true, noremap = true })
 
 -- Yank whole function / object
 -- https://twitter.com/Adib_Hanna/status/1662310859962548224

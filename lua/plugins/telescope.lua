@@ -54,7 +54,7 @@ return {
       vim.keymap.set(
         "n",
         "<leader><space>",
-        "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+        "<cmd>Telescope buffers sort_mru=true sort_lastused=true ignore_current_buffer=true<cr>",
         { noremap = true, silent = true, desc = "Switch Buffer" }
       )
       vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "Find recently opened files" })
