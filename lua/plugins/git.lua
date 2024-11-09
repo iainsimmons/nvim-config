@@ -43,6 +43,12 @@ return {
         "<CMD>Gitsigns undo_stage_hunk<CR>",
         desc = "[G]it [U]ndo Stage Hunk",
       },
+      {
+        "<leader>ug",
+        "<CMD>Gitsigns toggle_current_line_blame<CR>",
+        silent = true,
+        desc = "󰊢 Toggle current line blame",
+      },
     },
   },
 }
