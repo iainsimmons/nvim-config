@@ -201,28 +201,28 @@ return {
         desc = "Redirect Cmdline",
       },
       {
-        "<leader>snl",
+        "<leader>nl",
         function()
           require("noice").cmd("last")
         end,
         desc = "Noice Last Message",
       },
       {
-        "<leader>snh",
+        "<leader>nh",
         function()
           require("noice").cmd("history")
         end,
         desc = "Noice History",
       },
       {
-        "<leader>sna",
+        "<leader>na",
         function()
           require("noice").cmd("all")
         end,
         desc = "Noice All",
       },
       {
-        "<leader>snd",
+        "<leader>nd",
         function()
           require("noice").cmd("dismiss")
         end,
@@ -252,32 +252,6 @@ return {
         desc = "Scroll backward",
         mode = { "i", "n", "s" },
       },
-    },
-  },
-  {
-    "rcarriga/nvim-notify",
-    event = { "VeryLazy" },
-    keys = {
-      {
-        "<leader>un",
-        function()
-          require("notify").dismiss({ silent = true, pending = true })
-        end,
-        desc = "Dismiss all Notifications",
-      },
-    },
-    opts = {
-      background_colour = "#000000",
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-      on_open = function(win)
-        vim.api.nvim_win_set_config(win, { zindex = 100 })
-      end,
     },
   },
 }
