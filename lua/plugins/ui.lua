@@ -1,23 +1,9 @@
-local function disable_transparent_bg()
-  if vim.g.base16_background_transparent == 1 then
-    local current_theme_name = vim.g.colors_name
-    vim.g.base16_background_transparent = 0
-    vim.cmd("colorscheme " .. current_theme_name)
-    vim.notify("transparent background disabled")
-  end
-end
-
 return {
   {
     "tinted-theming/base16-vim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.api.nvim_create_user_command("TransparentBGDisable", disable_transparent_bg, {
-        desc = "Disable transparent background",
-      })
-      vim.keymap.set("n", [[\t]], disable_transparent_bg, { desc = "Disable transparent background" })
-
       vim.o.termguicolors = true
       -- Access colors present in 256 colorspace
       vim.g.base16_colorspace = 256
