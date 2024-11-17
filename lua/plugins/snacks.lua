@@ -129,14 +129,17 @@ return {
       function()
         Snacks.win({
           file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-          width = 0.6,
-          height = 0.6,
+          width = 0.8,
+          height = 0.8,
           wo = {
             spell = false,
-            wrap = false,
+            wrap = true,
             signcolumn = "yes",
             statuscolumn = " ",
             conceallevel = 3,
+          },
+          keys = {
+            q = "close",
           },
         })
       end,
@@ -156,18 +159,18 @@ return {
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
         -- Create some toggle mappings
+        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map([[\b]])
+        Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map([[\c]])
+        Snacks.toggle.option("cursorcolumn", { name = "Cursor Column" }):map([[\|]])
+        Snacks.toggle.option("cursorline", { name = "Cursor Line" }):map([[\-]])
+        Snacks.toggle.option("ignorecase", { name = "Ignore Case" }):map([[\i]])
+        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map([[\L]])
         Snacks.toggle.option("spell", { name = "Spelling" }):map([[\s]])
         Snacks.toggle.option("wrap", { name = "Wrap" }):map([[\w]])
-        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map([[\L]])
-        Snacks.toggle.option("ignorecase", { name = "Ignore Case" }):map([[\i]])
-        Snacks.toggle.option("cursorline", { name = "Cursor Line" }):map([[\-]])
-        Snacks.toggle.option("cursorcolumn", { name = "Cursor Column" }):map([[\|]])
         Snacks.toggle.diagnostics():map([[\d]])
         Snacks.toggle.line_number():map([[\l]])
-        Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map([[\c]])
-        Snacks.toggle.treesitter():map([[\T]])
-        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map([[\b]])
         Snacks.toggle.inlay_hints():map([[\h]])
+        Snacks.toggle.treesitter():map([[\T]])
       end,
     })
   end,
