@@ -38,9 +38,9 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ### comment
 
 + native comments in Neovim 0.10.0!
-+ [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 + [JoosepAlviste/nvim-ts-context-commentstring](https://dotfyle.com/plugins/JoosepAlviste/nvim-ts-context-commentstring)
 + [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
++ [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 
 ### completion
 
@@ -58,10 +58,11 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### editing-support
 
-+ [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
-+ [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
 + [nat-418/boole.nvim](https://dotfyle.com/plugins/nat-418/boole.nvim)
 + [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
++ [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
++ [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
++ [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
 
 ### file-explorer
 
@@ -80,7 +81,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### git
 
-+ [ruifm/gitlinker.nvim](https://dotfyle.com/plugins/ruifm/gitlinker.nvim)
 + [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 
 ### icon
@@ -100,7 +100,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 + [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
-+ [smjonas/inc-rename.nvim](https://dotfyle.com/plugins/smjonas/inc-rename.nvim)
 
 ### lsp-installer
 
@@ -122,10 +121,10 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### nvim-dev
 
-+ [kkharji/sqlite.lua](https://dotfyle.com/plugins/kkharji/sqlite.lua)
 + [folke/lazydev.nvim](https://dotfyle.com/plugins/folke/lazydev.nvim)
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
 + [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
++ [kkharji/sqlite.lua](https://dotfyle.com/plugins/kkharji/sqlite.lua)
 
 ### plugin-manager
 
@@ -169,7 +168,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ### utility
 
 + [jellydn/hurl.nvim](https://dotfyle.com/plugins/jellydn/hurl.nvim)
-+ [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
 + [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
 + [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
 
