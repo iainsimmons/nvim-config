@@ -136,8 +136,16 @@ map("n", "<C-u>", "<C-u>zz", { silent = true, noremap = true })
 map("n", "n", "nzzzv", { silent = true, noremap = true })
 map("n", "N", "Nzzzv", { silent = true, noremap = true })
 -- Some useful quickfix shortcuts for quickfix
-map("n", "<C-n>", "<cmd>cnext<CR>zz", { silent = true, noremap = true })
-map("n", "<C-p>", "<cmd>cprev<CR>zz", { silent = true, noremap = true })
+map("n", "<C-n>", function()
+  if vim.fn.empty(vim.fn.filter(vim.fn.getwininfo(), "v:val.quickfix")) == 1 then
+    vim.cmd("silent! cnext")
+  end
+end, { silent = true, noremap = true })
+map("n", "<C-p>", function()
+  if vim.fn.empty(vim.fn.filter(vim.fn.getwininfo(), "v:val.quickfix")) == 1 then
+    vim.cmd("silent! cprev")
+  end
+end, { silent = true, noremap = true })
 map("n", "<leader>xc", "<cmd>cclose<CR>", { silent = true, noremap = true })
 
 -- . repeat or execute macro on all visually selected lines
