@@ -113,6 +113,12 @@ return { -- Autocompletion
           fallback()
         end,
       }),
+      matching = {
+        disallow_fuzzy_matching = false,
+        disallow_fullfuzzy_matching = false,
+        disallow_partial_fuzzy_matching = false,
+        disallow_partial_matching = false,
+      },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "path" },
