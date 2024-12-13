@@ -5,6 +5,9 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
+    indent = { enabled = true },
+    input = { enabled = true },
+    scroll = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 3000,
@@ -112,6 +115,13 @@ return {
   },
   keys = {
     {
+      "<leader>uh",
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = "Notification History",
+    },
+    {
       "<leader>un",
       function()
         Snacks.notifier.hide()
@@ -187,6 +197,7 @@ return {
         Snacks.words.jump(vim.v.count1)
       end,
       desc = "Next Reference",
+      mode = { "n", "t" },
     },
     {
       "[[",
@@ -194,6 +205,7 @@ return {
         Snacks.words.jump(-vim.v.count1)
       end,
       desc = "Prev Reference",
+      mode = { "n", "t" },
     },
     {
       "<leader>N",
@@ -215,6 +227,20 @@ return {
           },
         })
       end,
+    },
+    {
+      "<leader>z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
+    },
+    {
+      "<leader>Z",
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
     },
   },
   init = function()

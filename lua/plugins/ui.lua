@@ -13,30 +13,6 @@ return {
     end,
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    main = "ibl",
-    config = function()
-      local ibl = require("ibl")
-      ibl.setup({
-        indent = {
-          char = "│",
-          tab_char = "│",
-        },
-        scope = { enabled = true },
-        exclude = {
-          filetypes = {
-            "help",
-            "dashboard",
-            "lazy",
-            "mason",
-            "notify",
-          },
-        },
-      })
-    end,
-  },
-  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
