@@ -176,3 +176,7 @@ map("n", "B", "_", { noremap = false })
 
 -- select all / entire buffer
 map("n", "<leader>va", "ggVG", { silent = true, noremap = true, desc = "[V]isual Select [A]ll" })
+
+-- execute line as lua
+map("n", "<leader>x", "<CMD>.lua<CR>", { desc = "E[X]ecute line as Lua code" })
+map("v", "<leader>x", "<CMD>lua<CR>", { desc = "E[X]ecute line as Lua code" })
