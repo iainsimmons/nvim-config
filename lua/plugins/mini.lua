@@ -489,6 +489,19 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
+    require("mini.statusline").setup()
+
+    vim.cmd("highlight MiniStatuslineModeNormal guifg=#0badff guibg=#22262d") -- Normal mode.
+    vim.cmd("highlight MiniStatuslineModeInsert guifg=#85ffe0 guibg=#22262d") -- Insert mode.
+    vim.cmd("highlight MiniStatuslineModeVisual guifg=#f0ffaa guibg=#22262d") -- Visual mode.
+    vim.cmd("highlight MiniStatuslineModeReplace guifg=#ff3d81 guibg=#22262d") -- Replace mode.
+    vim.cmd("highlight MiniStatuslineModeCommand guifg=#8265ff guibg=#22262d") -- Command mode.
+    vim.cmd("highlight MiniStatuslineModeOther guifg=#00eaff guibg=#22262d") -- other modes (like Terminal, etc.).
+    -- base00 = '#17191e', base01 = '#22262d', base02 = '#3c3f4c', base03 = '#383a47',
+    -- base04 = '#555e70', base05 = '#8b9cbe', base06 = '#b2bfd9', base07 = '#f4f4f7',
+    -- base08 = '#ff29a8', base09 = '#85ffe0', base0A = '#f0ffaa', base0B = '#0badff',
+    -- base0C = '#8265ff', base0D = '#00eaff', base0E = '#00f6d9', base0F = '#ff3d81'
+
     require("mini.surround").setup({
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
