@@ -8,6 +8,7 @@ return {
     indent = { enabled = true },
     input = { enabled = true },
     scroll = { enabled = true },
+    scope = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 3000,
@@ -269,6 +270,8 @@ return {
         Snacks.toggle.line_number():map([[\l]])
         Snacks.toggle.inlay_hints():map([[\h]])
         Snacks.toggle.treesitter():map([[\T]])
+        Snacks.toggle.indent():map([[\I]])
+        Snacks.toggle.dim():map([[\D]])
       end,
     })
   end,
