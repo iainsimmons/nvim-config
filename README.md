@@ -31,16 +31,11 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 + [rasulomaroff/reactive.nvim](https://dotfyle.com/plugins/rasulomaroff/reactive.nvim)
 
-### colorscheme
-
-+ [RRethy/base16-nvim](https://dotfyle.com/plugins/RRethy/base16-nvim)
-
 ### comment
 
 + native comments in Neovim 0.10.0!
-+ [JoosepAlviste/nvim-ts-context-commentstring](https://dotfyle.com/plugins/JoosepAlviste/nvim-ts-context-commentstring)
-+ [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
 + [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
++ [JoosepAlviste/nvim-ts-context-commentstring](https://dotfyle.com/plugins/JoosepAlviste/nvim-ts-context-commentstring)
 
 ### completion
 
@@ -48,8 +43,8 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### debugging
 
-+ [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
 + [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
++ [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
 + [theHamsta/nvim-dap-virtual-text](https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text)
 
 ### dependency-management
@@ -58,16 +53,16 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### editing-support
 
-+ [nat-418/boole.nvim](https://dotfyle.com/plugins/nat-418/boole.nvim)
 + [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
-+ [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
 + [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
++ [nat-418/boole.nvim](https://dotfyle.com/plugins/nat-418/boole.nvim)
 + [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
++ [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
 
 ### file-explorer
 
-+ [mikavilpas/yazi.nvim](https://dotfyle.com/plugins/mikavilpas/yazi.nvim)
 + [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
++ [mikavilpas/yazi.nvim](https://dotfyle.com/plugins/mikavilpas/yazi.nvim)
 
 ### formatting
 
@@ -75,9 +70,9 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### fuzzy-finder
 
++ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
 + [fdschmidt93/telescope-egrepify.nvim](https://dotfyle.com/plugins/fdschmidt93/telescope-egrepify.nvim)
 + [danielfalk/smart-open.nvim](https://dotfyle.com/plugins/danielfalk/smart-open.nvim)
-+ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
 
 ### git
 
@@ -87,19 +82,16 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 + [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
 
-### indent
-
-+ [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
-
 ### keybinding
 
 + [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
 
 ### lsp
 
-+ [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
++ [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
 + [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
++ [rachartier/tiny-inline-diagnostic.nvim](https://dotfyle.com/plugins/rachartier/tiny-inline-diagnostic.nvim)
 
 ### lsp-installer
 
@@ -107,12 +99,11 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### markdown-and-latex
 
-+ [MeanderingProgrammer/render-markdown.nvim](https://dotfyle.com/plugins/MeanderingProgrammer/render-markdown.nvim)
 + [davidgranstrom/nvim-markdown-preview](https://dotfyle.com/plugins/davidgranstrom/nvim-markdown-preview)
++ [MeanderingProgrammer/render-markdown.nvim](https://dotfyle.com/plugins/MeanderingProgrammer/render-markdown.nvim)
 
 ### marks
 
-+ [abeldekat/harpoonline](https://dotfyle.com/plugins/abeldekat/harpoonline)
 + [ThePrimeagen/harpoon](https://dotfyle.com/plugins/ThePrimeagen/harpoon)
 
 ### motion
@@ -121,10 +112,10 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### nvim-dev
 
-+ [folke/lazydev.nvim](https://dotfyle.com/plugins/folke/lazydev.nvim)
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
-+ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
 + [kkharji/sqlite.lua](https://dotfyle.com/plugins/kkharji/sqlite.lua)
++ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
++ [folke/lazydev.nvim](https://dotfyle.com/plugins/folke/lazydev.nvim)
 
 ### plugin-manager
 
@@ -145,17 +136,13 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ### snippet
 
 + [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
-+ [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
 + [TobinPalmer/rayso.nvim](https://dotfyle.com/plugins/TobinPalmer/rayso.nvim)
-
-### statusline
-
-+ [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
++ [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
 
 ### syntax
 
-+ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
++ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 
 ### tabline
 
@@ -163,9 +150,9 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### utility
 
-+ [jellydn/hurl.nvim](https://dotfyle.com/plugins/jellydn/hurl.nvim)
-+ [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
 + [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
++ [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
++ [jellydn/hurl.nvim](https://dotfyle.com/plugins/jellydn/hurl.nvim)
 
 ## Language Servers
 
