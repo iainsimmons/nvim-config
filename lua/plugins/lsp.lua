@@ -121,7 +121,7 @@ return {
               diagnostics = {
                 disable = { "missing-fields" },
                 -- Get the language server to recognize the `vim` global
-                globals = { "vim", "nvim_bufferline", "Snacks" },
+                globals = { "vim", "nvim_bufferline" },
               },
             },
           },
