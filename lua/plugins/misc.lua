@@ -46,24 +46,25 @@ return {
     },
   },
   {
-    "tpope/vim-abolish",
-    event = { "BufReadPost", "BufNewFile" },
+    "johmsalas/text-case.nvim",
+    event = { "BufNewFile", "BufReadPost" },
+    dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
-      require("which-key").add({
-        { "cr", group = "coercion" },
-        { "cr-", desc = "Kebab Case (not reversible)" },
-        { "cr.", desc = "Dot Case (not reversible)" },
-        { "cr<space>", desc = "Space Case (not reversible)" },
-        { "crU", desc = "Snake Upper Case" },
-        { "cr_", desc = "Snake Case" },
-        { "crc", desc = "Camel Case" },
-        { "crk", desc = "Kebab Case" },
-        { "crm", desc = "Mixed Case" },
-        { "crs", desc = "Snake Case" },
-        { "crt", desc = "Title Case (not reversible)" },
-        { "cru", desc = "Snake Upper Case" },
-      })
+      require("textcase").setup({})
+      require("telescope").load_extension("textcase")
     end,
+    keys = {
+      "ga", -- Default invocation prefix
+      { "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
+    },
+    cmd = {
+      -- NOTE: The Subs command name can be customized via the option "substitude_command_name"
+      "Subs",
+      "TextCaseOpenTelescope",
+      "TextCaseOpenTelescopeQuickChange",
+      "TextCaseOpenTelescopeLSPChange",
+      "TextCaseStartReplacingCommand",
+    },
   },
   {
     "tzachar/highlight-undo.nvim",
