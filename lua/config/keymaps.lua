@@ -103,22 +103,14 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 -- [[ my keymaps ]]
 --
 
--- yank and delete to other registers
-map("n", "<leader>y", '"+y')
-map("v", "<leader>y", '"+y')
-map("n", "<leader>Y", '"+Y')
 map("n", "x", '"_x')
 
 -- increment & decrement
 map("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 map("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
--- Yank whole function / object
--- https://twitter.com/Adib_Hanna/status/1662310859962548224
-map("n", "YY", "vabVy", { desc = "Yank lines around brackets" })
-
 -- Reveal folder of current file
-map("n", "<leader>rf", ":! open %:h<CR>", { desc = "[R]eveal [F]older of current file in Finder", silent = true })
+map("n", "<leader>fe", ":! open %:h<CR>", { desc = "Reveal folder of current file in Finder", silent = true })
 
 map("n", "<leader>ga", ":! git add -f %<CR>", { desc = "[G]it [A]dd (force) current file", silent = true })
 
@@ -172,7 +164,7 @@ map("n", "E", "$", { noremap = false })
 map("n", "B", "_", { noremap = false })
 
 -- select all / entire buffer
-map("n", "<leader>va", "ggVG", { silent = true, noremap = true, desc = "[V]isual Select [A]ll" })
+map("n", "<leader>cv", "ggVG", { silent = true, noremap = true, desc = "[V]isual Select All" })
 
 -- execute line as lua
 map("n", "<leader>x", "<CMD>.lua<CR>", { desc = "E[X]ecute line as Lua code" })

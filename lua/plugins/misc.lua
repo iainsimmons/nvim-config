@@ -65,6 +65,10 @@ return {
       "TextCaseOpenTelescopeLSPChange",
       "TextCaseStartReplacingCommand",
     },
+    -- If you want to use the interactive feature of the `Subs` command right away, text-case.nvim
+    -- has to be loaded on startup. Otherwise, the interactive feature of the `Subs` will only be
+    -- available after the first executing of it or after a keymap of text-case.nvim has been used.
+    -- lazy = false,
   },
   {
     "tzachar/highlight-undo.nvim",
@@ -105,7 +109,7 @@ return {
     },
     keys = {
       {
-        "<leader>rs",
+        "<leader>cs",
         ":Rayso<cr>",
         desc = "Share with Ray.so",
         silent = true,
@@ -139,11 +143,11 @@ return {
     },
     keys = {
       -- Run API request
-      { "<leader>rA", "<cmd>HurlRunner<CR>", desc = "Run All requests" },
-      { "<leader>ra", "<cmd>HurlRunnerAt<CR>", desc = "Run Api request" },
-      { "<leader>re", "<cmd>HurlRunnerToEntry<CR>", desc = "Run Api request to entry" },
-      { "<leader>rm", "<cmd>HurlToggleMode<CR>", desc = "Hurl Toggle Mode" },
-      { "<leader>rv", "<cmd>HurlVerbose<CR>", desc = "Run Api in verbose mode" },
+      { "<leader>hA", "<cmd>HurlRunner<CR>", desc = "Run All requests" },
+      { "<leader>ha", "<cmd>HurlRunnerAt<CR>", desc = "Run Api request" },
+      { "<leader>he", "<cmd>HurlRunnerToEntry<CR>", desc = "Run Api request to entry" },
+      { "<leader>hm", "<cmd>HurlToggleMode<CR>", desc = "Hurl Toggle Mode" },
+      { "<leader>hv", "<cmd>HurlVerbose<CR>", desc = "Run Api in verbose mode" },
       -- Run Hurl request in visual mode
       { "<leader>rh", ":HurlRunner<CR>", desc = "Hurl Runner", mode = "v" },
     },

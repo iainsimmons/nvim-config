@@ -10,17 +10,20 @@ return {
       wk.setup(opts)
       wk.add({
         mode = { "n", "v" },
-        { "<leader>b", group = "[B]uffer" },
-        { "<leader>c", group = "[C]ode" },
-        { "<leader>d", group = "[D]ebug" },
-        { "<leader>f", group = "[F]ile/find" },
-        { "<leader>g", group = "[G]it" },
-        { "<leader>q", group = "[Q]uit/session" },
-        { "<leader>s", group = "[S]earch" },
-        { "<leader>t", group = "[T]oggle" },
-        { "<leader>u", group = "[U]I" },
-        { "<leader>w", group = "[W]indows" },
-        { "<leader>x", group = "[D]iagnostics/quickfix" },
+        { "<leader>b", group = "Buffer >" },
+        { "<leader>c", group = "Code >" },
+        { "<leader>d", group = "Debug >" },
+        { "<leader>f", group = "File/Find >" },
+        { "<leader>g", group = "Git >" },
+        { "<leader>h", group = "Hurl >" },
+        { "<leader>n", group = "Noice >" },
+        { "<leader>q", group = "Quit/Session >" },
+        { "<leader>r", group = "Replace >" },
+        { "<leader>s", group = "Search >" },
+        { "<leader>t", group = "Toggle >" },
+        { "<leader>u", group = "UI >" },
+        { "<leader>w", group = "Windows >" },
+        { "<leader>x", group = "Diagnostics/Quickfix >" },
       })
       local presets = require("which-key.plugins.presets")
       presets.operators["d"] = nil
