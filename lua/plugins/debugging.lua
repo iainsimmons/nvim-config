@@ -20,6 +20,7 @@ local icons = {
 
 return {
   "mfussenegger/nvim-dap",
+  enabled = false,
   recommended = true,
   desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
 
