@@ -41,6 +41,7 @@ return {
       svelte = { "prettierd", "prettier", stop_after_first = true },
       xml = { "xmlformatter" },
       rss = { "xmlformatter" },
+      python = { "isort", "black" },
     },
   },
   config = function(_, opts)
