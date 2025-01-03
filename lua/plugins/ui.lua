@@ -1,13 +1,12 @@
 return {
   {
-    "tinted-theming/base16-vim",
+    "tinted-theming/tinted-vim",
     lazy = false,
     priority = 1000,
     config = function()
       vim.o.termguicolors = true
-      -- Access colors present in 256 colorspace
-      vim.g.base16_colorspace = 256
-      vim.g.base16_background_transparent = 1
+      -- respect terminal transparent background
+      vim.g.tinted_background_transparent = 1
       -- set from https://github.com/FabioAntunes/base16-fish-shell
       vim.cmd("source ~/.vimrc_background")
       local hl_groups = vim.api.nvim_get_hl(0, {})
