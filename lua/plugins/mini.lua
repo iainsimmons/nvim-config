@@ -465,6 +465,8 @@ return { -- Collection of various small independent plugins/modules
 
     require("mini.icons").setup()
 
+    require("mini.move").setup()
+
     require("mini.operators").setup({
       -- Each entry configures one operator.
       -- `prefix` defines keys mapped during `setup()`: in Normal mode
