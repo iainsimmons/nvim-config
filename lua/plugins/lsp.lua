@@ -196,6 +196,7 @@ return {
         "basedpyright",
         "shfmt",
         "stylua",
+        "svelte-language-server",
         "tailwindcss-language-server",
         "typescript-language-server",
         "xmlformatter",
