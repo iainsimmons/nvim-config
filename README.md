@@ -24,18 +24,12 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ## Plugins
 
-### bars-and-lines
-
-+ [utilyre/barbecue.nvim](https://dotfyle.com/plugins/utilyre/barbecue.nvim)
-+ [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
-
 ### color
 
 + [rasulomaroff/reactive.nvim](https://dotfyle.com/plugins/rasulomaroff/reactive.nvim)
 
 ### comment
 
-+ native comments in Neovim 0.10.0!
 + [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 + [JoosepAlviste/nvim-ts-context-commentstring](https://dotfyle.com/plugins/JoosepAlviste/nvim-ts-context-commentstring)
 
@@ -79,10 +73,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ### git
 
 + [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
-
-### icon
-
-+ [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
 
 ### keybinding
 
@@ -146,10 +136,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
 + [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 
-### tabline
-
-+ [akinsho/bufferline.nvim](https://dotfyle.com/plugins/akinsho/bufferline.nvim)
-
 ### utility
 
 + [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
@@ -159,6 +145,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ## Language Servers
 
 + astro
++ basedpyright
 + emmet_ls
 + eslint
 + glint
@@ -175,7 +162,9 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ## Formatters
 
++ black
 + cbfmt
++ isort
 + markdownlint
 + prettierd
 + shfmt
