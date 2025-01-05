@@ -376,6 +376,26 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
+    require("mini.files").setup({
+      mappings = {
+        close = "<ESC>",
+      },
+      windows = {
+        preview = true,
+        border = "solid",
+        width_preview = 80,
+      },
+    })
+
+    vim.keymap.set("n", "-", function()
+      local buffer_name = vim.api.nvim_buf_get_name(0)
+      if buffer_name == "" or string.match(buffer_name, "Dashboard") then
+        require("mini.files").open(vim.uv.cwd())
+      else
+        require("mini.files").open(vim.api.nvim_buf_get_name(0))
+      end
+    end, { desc = "Mini Files" })
+
     local hi = require("mini.hipatterns")
     hi.setup({
       highlighters = {

@@ -154,8 +154,6 @@ map("n", "<leader>rW", ":%s/<C-r><C-a>/", { silent = false })
 -- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjym8kg/
 map("x", "/", "<Esc>/\\%V", { silent = true })
 
-map("n", "-", "<CMD>Oil --float<CR>", { desc = "Oil - Open parent directory" })
-
 -- A couple of nice keymaps from Dev Ops Toolbox on YouTube
 -- https://www.youtube.com/watch?v=x__SZUuLOxw
 map("n", "E", "$", { noremap = false })
