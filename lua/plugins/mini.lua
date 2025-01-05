@@ -350,7 +350,7 @@ return { -- Collection of various small independent plugins/modules
         windows = true,
 
         -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
-        move_with_alt = false,
+        move_with_alt = true,
       },
 
       -- Autocommands. Set to `false` to disable
