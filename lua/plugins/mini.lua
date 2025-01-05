@@ -530,18 +530,6 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
-    -- Colors for base16-vice:
-    -- base00 = '#17191e', base01 = '#22262d', base02 = '#3c3f4c', base03 = '#383a47',
-    -- base04 = '#555e70', base05 = '#8b9cbe', base06 = '#b2bfd9', base07 = '#f4f4f7',
-    -- base08 = '#ff29a8', base09 = '#85ffe0', base0A = '#f0ffaa', base0B = '#0badff',
-    -- base0C = '#8265ff', base0D = '#00eaff', base0E = '#00f6d9', base0F = '#ff3d81'
-    vim.cmd("highlight MiniStatuslineModeNormal guifg=#0badff guibg=#22262d") -- Normal mode.
-    vim.cmd("highlight MiniStatuslineModeInsert guifg=#85ffe0 guibg=#22262d") -- Insert mode.
-    vim.cmd("highlight MiniStatuslineModeVisual guifg=#f0ffaa guibg=#22262d") -- Visual mode.
-    vim.cmd("highlight MiniStatuslineModeReplace guifg=#ff3d81 guibg=#22262d") -- Replace mode.
-    vim.cmd("highlight MiniStatuslineModeCommand guifg=#8265ff guibg=#22262d") -- Command mode.
-    vim.cmd("highlight MiniStatuslineModeOther guifg=#00eaff guibg=#22262d") -- other modes (like Terminal, etc.).
-
     require("mini.surround").setup({
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
@@ -559,6 +547,37 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
-    require("mini.tabline").setup({})
+    require("mini.tabline").setup({
+      format = function(buf_id, label)
+        local suffix = vim.bo[buf_id].modified and "* " or ""
+        return MiniTabline.default_format(buf_id, label) .. suffix
+      end,
+    })
+
+    -- Set Highlights
+    -- Colors for base16-vice:
+    -- base00 = '#17191e', base01 = '#22262d', base02 = '#3c3f4c', base03 = '#383a47',
+    -- base04 = '#555e70', base05 = '#8b9cbe', base06 = '#b2bfd9', base07 = '#f4f4f7',
+    -- base08 = '#ff29a8', base09 = '#85ffe0', base0A = '#f0ffaa', base0B = '#0badff',
+    -- base0C = '#8265ff', base0D = '#00eaff', base0E = '#00f6d9', base0F = '#ff3d81'
+
+    local function highlight(hl_name, opts)
+      vim.api.nvim_set_hl(0, hl_name, opts)
+    end
+
+    -- mini.statusline
+    highlight("MiniStatuslineModeNormal", { fg = "#0badff", bg = "#22262d" }) -- Normal mode.
+    highlight("MiniStatuslineModeInsert", { fg = "#85ffe0", bg = "#22262d" }) -- Insert mode.
+    highlight("MiniStatuslineModeVisual", { fg = "#f0ffaa", bg = "#22262d" }) -- Visual mode.
+    highlight("MiniStatuslineModeReplace", { fg = "#ff3d81", bg = "#22262d" }) -- Replace mode.
+    highlight("MiniStatuslineModeCommand", { fg = "#8265ff", bg = "#22262d" }) -- Command mode.
+    highlight("MiniStatuslineModeOther", { fg = "#00eaff", bg = "#22262d" }) -- other modes (like Terminal, etc.).
+    -- mini.tabline
+    highlight("MiniTablineCurrent", { fg = "#00eaff", bg = "#3c3f4c", italic = true, bold = true })
+    highlight("MiniTablineModifiedCurrent", { fg = "#00eaff", bg = "#3c3f4c", italic = true, bold = true })
+    -- MiniTablineVisible - buffer is visible (displayed in some window).
+    -- MiniTablineHidden - buffer is hidden (not displayed).
+    -- MiniTablineModifiedVisible - buffer is modified and visible.
+    -- MiniTablineModifiedHidden - buffer is modified and hidden.
   end,
 }

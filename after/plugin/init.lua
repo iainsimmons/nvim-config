@@ -1,9 +1,9 @@
 -- Change highlights after all other plugin configs
 
 -- Brighten the base16-vice comments from the super dark grey default
-vim.cmd([[highlight @comment guifg=grey]])
-vim.cmd("highlight Comment guifg=grey")
+vim.api.nvim_set_hl(0, "Comment", { fg = "grey" })
+vim.api.nvim_set_hl(0, "@comment", { link = "Comment" })
 
 -- Change the Search and LSP References highlight
 -- because the base16-vice pale yellow was hard to see the white cursor
-vim.cmd("highlight Search guifg=#22262d guibg=#ff3d81")
+vim.api.nvim_set_hl(0, "Search", { fg = "#22262d", bg = "#ff3d81" })
