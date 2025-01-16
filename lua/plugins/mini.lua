@@ -588,15 +588,15 @@ return { -- Collection of various small independent plugins/modules
     end
 
     -- mini.statusline
-    highlight("MiniStatuslineModeNormal", { fg = "#0badff", bg = "#22262d" }) -- Normal mode.
-    highlight("MiniStatuslineModeInsert", { fg = "#85ffe0", bg = "#22262d" }) -- Insert mode.
-    highlight("MiniStatuslineModeVisual", { fg = "#f0ffaa", bg = "#22262d" }) -- Visual mode.
-    highlight("MiniStatuslineModeReplace", { fg = "#ff3d81", bg = "#22262d" }) -- Replace mode.
-    highlight("MiniStatuslineModeCommand", { fg = "#8265ff", bg = "#22262d" }) -- Command mode.
-    highlight("MiniStatuslineModeOther", { fg = "#00eaff", bg = "#22262d" }) -- other modes (like Terminal, etc.).
-    -- mini.tabline
-    highlight("MiniTablineCurrent", { fg = "#00eaff", bg = "#3c3f4c", italic = true, bold = true })
-    highlight("MiniTablineModifiedCurrent", { fg = "#00eaff", bg = "#3c3f4c", italic = true, bold = true })
+    -- highlight("MiniStatuslineModeNormal", { fg = "#0badff", bg = "#22262d" }) -- Normal mode.
+    -- highlight("MiniStatuslineModeInsert", { fg = "#85ffe0", bg = "#22262d" }) -- Insert mode.
+    -- highlight("MiniStatuslineModeVisual", { fg = "#f0ffaa", bg = "#22262d" }) -- Visual mode.
+    -- highlight("MiniStatuslineModeReplace", { fg = "#ff3d81", bg = "#22262d" }) -- Replace mode.
+    -- highlight("MiniStatuslineModeCommand", { fg = "#8265ff", bg = "#22262d" }) -- Command mode.
+    -- highlight("MiniStatuslineModeOther", { fg = "#00eaff", bg = "#22262d" }) -- other modes (like Terminal, etc.).
+    -- -- mini.tabline
+    -- highlight("MiniTablineCurrent", { fg = "#00eaff", bg = "#3c3f4c", italic = true, bold = true })
+    -- highlight("MiniTablineModifiedCurrent", { fg = "#00eaff", bg = "#3c3f4c", italic = true, bold = true })
     -- MiniTablineVisible - buffer is visible (displayed in some window).
     -- MiniTablineHidden - buffer is hidden (not displayed).
     -- MiniTablineModifiedVisible - buffer is modified and visible.

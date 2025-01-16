@@ -1,21 +1,15 @@
 return {
   {
-    "tinted-theming/tinted-vim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.o.termguicolors = true
-      -- respect terminal transparent background
-      vim.g.tinted_background_transparent = 1
-      -- set from https://github.com/FabioAntunes/base16-fish-shell
-      vim.cmd("source ~/.vimrc_background")
-      local hl_groups = vim.api.nvim_get_hl(0, {})
-
-      for key, hl_group in pairs(hl_groups) do
-        if hl_group.italic then
-          vim.api.nvim_set_hl(0, key, vim.tbl_extend("force", hl_group, { italic = false }))
-        end
-      end
+    opts = {
+      style = "night",
+      transparent = true,
+    },
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
+      vim.cmd([[colorscheme tokyonight]])
     end,
   },
   {
