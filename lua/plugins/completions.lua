@@ -127,6 +127,9 @@ return { -- Autocompletion
         { name = "buffer" },
       }),
       sorting = defaults.sorting,
+      formatting = {
+        format = require("nvim-highlight-colors").format,
+      },
     })
     -- `/` cmdline setup.
     cmp.setup.cmdline("/", {
