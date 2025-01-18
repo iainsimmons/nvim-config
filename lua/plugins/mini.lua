@@ -63,6 +63,8 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
+    require("mini.diff").setup()
+
     require("mini.files").setup({
       mappings = {
         close = "<ESC>",
