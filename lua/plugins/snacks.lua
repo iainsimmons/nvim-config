@@ -256,7 +256,7 @@ return {
     {
       "<leader>,",
       function()
-        Snacks.picker.smart()
+        Snacks.picker.smart({ hidden = true })
       end,
       desc = "Smart Picker",
     },
@@ -292,21 +292,28 @@ return {
     {
       "<leader>fc",
       function()
-        Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+        Snacks.picker.files({ cwd = vim.fn.stdpath("config"), hidden = true })
       end,
       desc = "Find Config File",
     },
     {
+      "<leader>fl",
+      function()
+        Snacks.picker.lazy()
+      end,
+      desc = "Find Lazy plugin spec",
+    },
+    {
       "<leader>ff",
       function()
-        Snacks.picker.files()
+        Snacks.picker.files({ hidden = true })
       end,
       desc = "Find Files",
     },
     {
       "<leader>fg",
       function()
-        Snacks.picker.git_files()
+        Snacks.picker.git_files({ hidden = true })
       end,
       desc = "Find Git Files",
     },
