@@ -535,6 +535,11 @@ return {
         end
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
+        local ft = vim.bo[vim.api.nvim_get_current_buf()].filetype
+        if ft == "snacks_dashboard" then
+          vim.b[vim.api.nvim_get_current_buf()].ministatusline_disable = true
+        end
+
         -- Create some toggle mappings
         Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map([[\b]])
         Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map([[\c]])

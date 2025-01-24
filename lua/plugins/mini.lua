@@ -177,6 +177,15 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
+    -- Disable statusline for certain filetypes
+    local f = function(args)
+      local ft = vim.bo[args.buf].filetype
+      if ft == "snacks_dashboard" or ft == "help" then
+        vim.b[args.buf].ministatusline_disable = true
+      end
+    end
+    vim.api.nvim_create_autocmd("FileType", { callback = f })
+
     require("mini.surround").setup({
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
