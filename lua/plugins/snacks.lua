@@ -256,7 +256,7 @@ return {
     {
       "<leader>,",
       function()
-        Snacks.picker.smart({ hidden = true })
+        Snacks.picker.smart({ multi = { "buffers", "files" }, hidden = true })
       end,
       desc = "Smart Picker",
     },
