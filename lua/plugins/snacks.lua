@@ -476,11 +476,11 @@ return {
       desc = "Resume",
     },
     {
-      "<leader>st",
+      "<leader>uC",
       function()
         Snacks.picker.colorschemes()
       end,
-      desc = "Themes",
+      desc = "Colorschemes",
     },
     -- { "<leader>qp", function() Snacks.picker.projects() end, desc = "Projects" },
     -- -- LSP
