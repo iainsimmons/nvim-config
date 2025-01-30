@@ -3,7 +3,6 @@ return {
   branch = "harpoon2",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
   },
   opts = {
     menu = {
@@ -13,53 +12,40 @@ return {
   config = function(_, opts)
     local harpoon = require("harpoon")
     harpoon:setup(opts)
-
-    -- basic telescope configuration
-    local conf = require("telescope.config").values
-
-    local function toggle_telescope(harpoon_files)
-      local file_paths = {}
-      for _, item in ipairs(harpoon_files.items) do
-        table.insert(file_paths, item.value)
-      end
-
-      require("telescope.pickers")
-        .new({}, {
-          prompt_title = "Harpoon",
-          finder = require("telescope.finders").new_table({
-            results = file_paths,
-          }),
-          previewer = conf.file_previewer({}),
-          sorter = conf.generic_sorter({}),
-          attach_mappings = function(_, map)
-            map({ "i", "n" }, "<M-d>", function(prompt_bufnr)
-              local action_state = require("telescope.actions.state")
-              local current_picker = action_state.get_current_picker(prompt_bufnr)
-
-              current_picker:delete_selection(function(selection)
-                require("harpoon"):list():remove_at(selection.index)
-              end)
-            end, { desc = "Remove from harpoon list" })
-            return true
-          end,
-        })
-        :find()
-    end
-
-    vim.keymap.set("n", "<leader>h", function()
-      toggle_telescope(harpoon:list())
-    end, { desc = "Open harpoon window" })
   end,
   keys = {
     {
-      "<leader>H",
+      "<leader>hs",
+      function()
+        local harpoon = require("harpoon")
+        local function toggle_picker(harpoon_files)
+          local file_paths = {}
+          for _, item in ipairs(harpoon_files.items) do
+            table.insert(file_paths, item.value)
+          end
+
+          Snacks.picker.select(file_paths, {
+            prompt = "Harpoon",
+          }, function(_, idx)
+            harpoon:list():select(idx)
+          end)
+        end
+        toggle_picker(harpoon:list())
+      end,
+      desc = "Search harpoons",
+    },
+    -- TODO: Figure out if there's an easy way to remove harpoons
+    -- either from the current buffer if it is harpooned
+    -- or from the Snacks picker above
+    {
+      "<leader>hh",
       function()
         require("harpoon"):list():add()
       end,
       desc = "Harpoon file",
     },
     {
-      "<C-e>",
+      "<leader>hf",
       function()
         local harpoon = require("harpoon")
         harpoon.ui:toggle_quick_menu(harpoon:list())
@@ -67,35 +53,35 @@ return {
       desc = "Harpoon quick menu",
     },
     {
-      "<leader>1",
+      "<leader>hj",
       function()
         require("harpoon"):list():select(1)
       end,
       desc = "Harpoon to file 1",
     },
     {
-      "<leader>2",
+      "<leader>hk",
       function()
         require("harpoon"):list():select(2)
       end,
       desc = "Harpoon to file 2",
     },
     {
-      "<leader>3",
+      "<leader>hl",
       function()
         require("harpoon"):list():select(3)
       end,
       desc = "Harpoon to file 3",
     },
     {
-      "<leader>4",
+      "<leader>h;",
       function()
         require("harpoon"):list():select(4)
       end,
       desc = "Harpoon to file 4",
     },
     {
-      "<leader>5",
+      "<leader>h'",
       function()
         require("harpoon"):list():select(5)
       end,
