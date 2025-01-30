@@ -7,7 +7,7 @@ return {
         "<leader>m",
         "<plug>(nvim-markdown-preview)",
         "n",
-        desc = "Markdown Preview: Open preview in browser",
+        desc = "Markdown Preview",
         silent = true,
       },
     },

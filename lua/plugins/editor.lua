@@ -15,7 +15,7 @@ return {
         { "<leader>d", group = "Debug >" },
         { "<leader>f", group = "File/Find >" },
         { "<leader>g", group = "Git >" },
-        { "<leader>h", group = "Hurl >" },
+        { "<leader>h", group = "Harpoon >" },
         { "<leader>n", group = "Noice >" },
         { "<leader>q", group = "Quit/Session >" },
         { "<leader>r", group = "Replace >" },
@@ -24,6 +24,7 @@ return {
         { "<leader>u", group = "UI >" },
         { "<leader>w", group = "Windows >" },
         { "<leader>x", group = "Diagnostics/Quickfix >" },
+        { "<leader>#", group = "Scratch >" },
       })
       local presets = require("which-key.plugins.presets")
       presets.operators["d"] = nil

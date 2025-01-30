@@ -252,6 +252,20 @@ return {
       end,
       desc = "Toggle Zoom",
     },
+    {
+      "<leader>#t",
+      function()
+        Snacks.scratch()
+      end,
+      desc = "Toggle Scratch Buffer",
+    },
+    {
+      "<leader>#s",
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = "Select Scratch Buffer",
+    },
     -- picker
     {
       "<leader>,",
