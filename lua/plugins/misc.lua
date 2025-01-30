@@ -141,16 +141,17 @@ return {
         ".env",
       },
     },
-    keys = {
+    config = function(_, opts)
+      require("hurl").setup(opts)
       -- Run API request
-      { "<leader>hA", "<cmd>HurlRunner<CR>", desc = "Run All requests" },
-      { "<leader>ha", "<cmd>HurlRunnerAt<CR>", desc = "Run Api request" },
-      { "<leader>he", "<cmd>HurlRunnerToEntry<CR>", desc = "Run Api request to entry" },
-      { "<leader>hm", "<cmd>HurlToggleMode<CR>", desc = "Hurl Toggle Mode" },
-      { "<leader>hv", "<cmd>HurlVerbose<CR>", desc = "Run Api in verbose mode" },
+      vim.keymap.set("n", "<leader>HA", "<cmd>HurlRunner<CR>", { desc = "Run All requests" })
+      vim.keymap.set("n", "<leader>Ha", "<cmd>HurlRunnerAt<CR>", { desc = "Run Api request" })
+      vim.keymap.set("n", "<leader>He", "<cmd>HurlRunnerToEntry<CR>", { desc = "Run Api request to entry" })
+      vim.keymap.set("n", "<leader>Hm", "<cmd>HurlToggleMode<CR>", { desc = "Hurl Toggle Mode" })
+      vim.keymap.set("n", "<leader>Hv", "<cmd>HurlVerbose<CR>", { desc = "Run Api in verbose mode" })
       -- Run Hurl request in visual mode
-      { "<leader>rh", ":HurlRunner<CR>", desc = "Hurl Runner", mode = "v" },
-    },
+      vim.keymap.set("v", "<leader>Hr", ":HurlRunner<CR>", { desc = "Hurl Runner" })
+    end,
   },
   {
     "fei6409/log-highlight.nvim",
