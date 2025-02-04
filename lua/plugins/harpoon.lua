@@ -19,16 +19,51 @@ return {
       function()
         local harpoon = require("harpoon")
         local function toggle_picker(harpoon_files)
-          local file_paths = {}
-          for _, item in ipairs(harpoon_files.items) do
-            table.insert(file_paths, item.value)
+          local items = {}
+          for idx, item in ipairs(harpoon_files.items) do
+            local formatted = vim.fs.basename(item.value)
+            table.insert(items, {
+              file = item.value,
+              formatted = formatted,
+              text = idx .. " " .. formatted,
+              idx = idx,
+              item = item,
+            })
           end
-
-          Snacks.picker.select(file_paths, {
-            prompt = "Harpoon",
-          }, function(_, idx)
-            harpoon:list():select(idx)
-          end)
+          Snacks.picker.pick({
+            source = "select",
+            items = items,
+            format = Snacks.picker.format.ui_select("File", #items),
+            title = "Harpoon",
+            layout = {
+              preview = false,
+              layout = {
+                height = math.floor(math.min(vim.o.lines * 0.8 - 10, #items + 2) + 0.5) + 10,
+              },
+            },
+            actions = {
+              confirm = function(picker, item)
+                picker:close()
+                vim.schedule(function()
+                  harpoon:list():select(item.idx)
+                end)
+              end,
+              harpoon_delete = function(picker, item)
+                picker:close()
+                vim.schedule(function()
+                  harpoon:list():remove_at(item.idx)
+                end)
+              end,
+            },
+            win = {
+              input = {
+                keys = {
+                  ["<C-d>"] = { "harpoon_delete", mode = { "n", "i" } },
+                },
+              },
+              list = { keys = { ["dd"] = "harpoon_delete" } },
+            },
+          })
         end
         toggle_picker(harpoon:list())
       end,
