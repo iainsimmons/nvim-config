@@ -121,6 +121,19 @@ return {
           filename_first = true, -- display filename before the file path
         },
       },
+      win = {
+        input = {
+          keys = {
+            -- Close the picker on ESC instead of going normal mode
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+            -- Scrolling like in LazyGit
+            ["J"] = { "preview_scroll_down", mode = { "n", "i" } },
+            ["K"] = { "preview_scroll_up", mode = { "n", "i" } },
+            ["H"] = { "preview_scroll_left", mode = { "n", "i" } },
+            ["L"] = { "preview_scroll_right", mode = { "n", "i" } },
+          },
+        },
+      },
     },
   },
   keys = {

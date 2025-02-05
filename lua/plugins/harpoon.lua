@@ -48,6 +48,7 @@ return {
                   harpoon:list():select(item.idx)
                 end)
               end,
+              -- TODO: fix the harpoon_delete action to refresh the picker instead of close it
               harpoon_delete = function(picker, item)
                 picker:close()
                 vim.schedule(function()
