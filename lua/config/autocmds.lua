@@ -146,3 +146,13 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
     vim.cmd("redrawstatus")
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter" }, {
+  callback = function(args)
+    if
+      vim.bo[args.buf].buftype == "" and (vim.api.nvim_buf_get_name(args.buf) == "" or string.match(vim.api.nvim_buf_get_name(args.buf), "Scratch") ~= nil)
+    then
+      vim.bo[args.buf].buflisted = false
+    end
+  end,
+})
