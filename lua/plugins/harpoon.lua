@@ -48,12 +48,11 @@ return {
                   harpoon:list():select(item.idx)
                 end)
               end,
-              -- TODO: fix the harpoon_delete action to refresh the picker instead of close it
               harpoon_delete = function(picker, item)
-                picker:close()
-                vim.schedule(function()
-                  harpoon:list():remove_at(item.idx)
-                end)
+                local picker_items = picker.list.items
+                table.remove(picker_items, item.idx)
+                harpoon:list():remove_at(item.idx)
+                picker.list:update({ force = true })
               end,
             },
             win = {
@@ -70,9 +69,6 @@ return {
       end,
       desc = "Search harpoons",
     },
-    -- TODO: Figure out if there's an easy way to remove harpoons
-    -- either from the current buffer if it is harpooned
-    -- or from the Snacks picker above
     {
       "<leader>hh",
       function()
