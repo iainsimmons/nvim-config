@@ -1,4 +1,3 @@
----@type LazySpec
 return {
   "mikavilpas/yazi.nvim",
   dependencies = {

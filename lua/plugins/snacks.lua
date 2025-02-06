@@ -43,8 +43,6 @@ return {
       },
     },
     ---@class snacks.dashboard.Config
-    ---@field sections snacks.dashboard.Section
-    ---@field formats table<string, snacks.dashboard.Text|fun(item:snacks.dashboard.Item, ctx:snacks.dashboard.Format.ctx):snacks.dashboard.Text>
     dashboard = {
       width = 60,
       row = nil, -- dashboard position. nil for center
@@ -283,6 +281,8 @@ return {
     {
       "<leader>,",
       function()
+        ---@class snacks.picker
+        ---@field smart fun(opts?: snacks.picker.smart.Config|{}): snacks.Picker
         Snacks.picker.smart({ multi = { "buffers", "files" }, hidden = true })
       end,
       desc = "Smart Picker",
@@ -319,6 +319,7 @@ return {
     {
       "<leader>fc",
       function()
+        ---@diagnostic disable-next-line: assign-type-mismatch
         Snacks.picker.files({ cwd = vim.fn.stdpath("config"), hidden = true })
       end,
       desc = "Find Config File",
@@ -326,6 +327,8 @@ return {
     {
       "<leader>fl",
       function()
+        ---@class snacks.picker
+        ---@field lazy fun(opts?: snacks.picker.Config|{}): snacks.Picker
         Snacks.picker.lazy()
       end,
       desc = "Find Lazy plugin spec",

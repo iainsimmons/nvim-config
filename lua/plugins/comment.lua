@@ -17,7 +17,7 @@ return {
         "<leader>st",
         function()
           ---@class snacks.picker
-          -- TODO: figure out how to fix the LSP warnings here
+          ---@field todo_comments fun(opts?: snacks.picker.Config|{}): snacks.Picker
           Snacks.picker.todo_comments()
         end,
         desc = "Todo",
@@ -25,7 +25,8 @@ return {
       {
         "<leader>sT",
         function()
-          -- TODO: figure out how to fix the LSP warnings here
+          ---@class snacks.picker
+          ---@field todo_comments fun(opts?: snacks.picker.Config|{}): snacks.Picker
           Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
         end,
         desc = "Todo/Fix/Fixme",
