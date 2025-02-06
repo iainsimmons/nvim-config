@@ -119,6 +119,7 @@ return {
           filename_first = true, -- display filename before the file path
         },
       },
+      layout = { preset = "ivy", layout = { height = 0.5 } },
       win = {
         input = {
           keys = {
