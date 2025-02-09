@@ -136,6 +136,9 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
+    -- toggle with gS
+    require("mini.splitjoin").setup()
+
     require("mini.statusline").setup({
       use_icons = vim.g.have_nerd_font,
       content = {
