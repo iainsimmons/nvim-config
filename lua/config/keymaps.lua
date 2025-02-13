@@ -112,10 +112,10 @@ map("n", "<leader>cn", ":let @+=@%<CR>", { desc = "[C]opy Current file [N]ame", 
 -- clipboard
 map("x", "p", '"_dP', { silent = true, noremap = true })
 -- align buffer to vertical center
-map("n", "<C-d>", "<C-d>zz", { silent = true, noremap = true })
-map("n", "<C-u>", "<C-u>zz", { silent = true, noremap = true })
-map("n", "n", "nzzzv", { silent = true, noremap = true })
-map("n", "N", "Nzzzv", { silent = true, noremap = true })
+-- map("n", "<C-d>", "<C-d>zz", { silent = true, noremap = true })
+-- map("n", "<C-u>", "<C-u>zz", { silent = true, noremap = true })
+-- map("n", "n", "nzzzv", { silent = true, noremap = true })
+-- map("n", "N", "Nzzzv", { silent = true, noremap = true })
 -- Some useful quickfix shortcuts for quickfix
 map("n", "<C-n>", function()
   if vim.fn.empty(vim.fn.filter(vim.fn.getwininfo(), "v:val.quickfix")) == 1 then
