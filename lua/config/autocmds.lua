@@ -156,3 +156,11 @@ vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter" }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+  group = augroup("csv_bom"),
+  pattern = { "*.csv" },
+  callback = function()
+    vim.cmd("setlocal nobomb")
+  end,
+})
