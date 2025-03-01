@@ -313,6 +313,9 @@ return {
             vim.list_extend(ret, Snacks.picker.format.filename(item, picker))
             return ret
           end,
+          matcher = {
+            fuzzy = false,
+          },
         })
       end,
       desc = "Buffers",
