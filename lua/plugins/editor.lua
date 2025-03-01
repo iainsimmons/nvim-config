@@ -15,7 +15,6 @@ return {
         { "<leader>d", group = "Debug >" },
         { "<leader>f", group = "File/Find >" },
         { "<leader>g", group = "Git >" },
-        { "<leader>h", group = "Harpoon >" },
         { "<leader>n", group = "Noice >" },
         { "<leader>q", group = "Quit/Session >" },
         { "<leader>r", group = "Replace >" },
