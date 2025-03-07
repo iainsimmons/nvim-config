@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-![Neovim colorscheme](./iainsimmons_neovim_2025-01-19.png)
+![Neovim colorscheme](./iainsimmons_neovim_2025-03.png)
 
 <a href="https://dotfyle.com/iainsimmons/nvim-config"><img src="https://dotfyle.com/iainsimmons/nvim-config/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/iainsimmons/nvim-config"><img src="https://dotfyle.com/iainsimmons/nvim-config/badges/leaderkey?style=flat" /></a>
@@ -67,6 +67,10 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ### formatting
 
 + [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
+
+### icon
+
++ [2KAbhishek/nerdy.nvim](https://github.com/2KAbhishek/nerdy.nvim)
 
 ### keybinding
 
