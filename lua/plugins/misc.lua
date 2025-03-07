@@ -160,4 +160,19 @@ return {
       require("log-highlight").setup({})
     end,
   },
+  {
+    "2kabhishek/nerdy.nvim",
+    dependencies = {
+      "stevearc/dressing.nvim",
+    },
+    cmd = "Nerdy",
+    keys = {
+      {
+        "<leader>f,",
+        ":Nerdy<CR>",
+        desc = "Nerdy: Find nerd font symbols",
+        silent = true,
+      },
+    },
+  },
 }
