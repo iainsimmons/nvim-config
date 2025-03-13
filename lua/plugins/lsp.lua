@@ -139,6 +139,26 @@ return {
             yaml = {
               redhat = { telemetry = { enabled = false } },
               keyOrdering = false,
+              customTags = {
+                -- these are all for slumber.yml files
+                -- see https://slumber.lucaspickering.me/
+                "!request mapping",
+                "!folder mapping",
+                "!json mapping",
+                "!form_urlencoded mapping",
+                "!form_multipart mapping",
+                "!file mapping",
+                "!command mapping",
+                "!env mapping",
+                "!prompt mapping",
+                "!select mapping",
+                "!basic mapping",
+                "!bearer scalar",
+                "!never scalar",
+                "!no_history scalar",
+                "!expire scalar",
+                "!always scalar",
+              },
             },
           },
         },
