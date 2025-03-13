@@ -12,8 +12,10 @@ return {
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { "j-hui/fidget.nvim", opts = {} },
 
+      -- Allows extra capabilities provided by blink.cmp
+      "saghen/blink.cmp",
       -- Allows extra capabilities provided by nvim-cmp
-      "hrsh7th/cmp-nvim-lsp",
+      -- "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       --  This function gets run when an LSP attaches to a particular buffer.
@@ -86,7 +88,8 @@ return {
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+      capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+      -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.

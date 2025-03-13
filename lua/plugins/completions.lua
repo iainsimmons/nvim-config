@@ -1,158 +1,202 @@
-return { -- Autocompletion
-  "hrsh7th/nvim-cmp",
-  version = false,
-  event = { "InsertEnter", "CmdlineEnter" },
+return {
+  "saghen/blink.cmp",
+  lazy = false, -- lazy loading handled internally
+  version = "*",
   dependencies = {
-    -- Snippet Engine & its associated nvim-cmp source
+    "rafamadriz/friendly-snippets",
     {
       "L3MON4D3/LuaSnip",
-      build = (function()
-        -- Build Step is needed for regex support in snippets
-        -- This step is not supported in many windows environments
-        -- Remove the below condition to re-enable on windows
-        if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-          return
-        end
-        return "make install_jsregexp"
-      end)(),
-      dependencies = {
-        {
-          "rafamadriz/friendly-snippets",
-          config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-          end,
-        },
+      version = "v2.*",
+      build = "make install_jsregexp",
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load({
+          paths = { vim.fn.stdpath("config") .. "/snippets" },
+        })
+      end,
+    },
+  },
+
+  -- use a release tag to download pre-built binaries
+  -- version = 'v0.*',
+  -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+  build = "cargo build --release",
+  -- If you use nix, you can build from source using latest nightly rust with:
+  -- build = 'nix run .#build-plugin',
+
+  ---@module 'blink.cmp'
+  opts = {
+    -- 'default' for mappings similar to built-in completion
+    -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+    -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+    -- see the "default configuration" section below for full documentation on how to define
+    -- your own keymap.
+    keymap = {
+      preset = "default",
+      ["<C-space>"] = { "show", "select_and_accept", "show_documentation", "hide_documentation" },
+      ["<Tab>"] = { "snippet_forward", "fallback" },
+      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      ["<C-p>"] = { "select_prev", "fallback" },
+      ["<C-n>"] = { "select_next", "fallback" },
+      ["<Left>"] = { "snippet_backward", "fallback" },
+      ["<Right>"] = { "snippet_forward", "fallback" },
+      ["<Up>"] = { "select_prev", "fallback" },
+      ["<Down>"] = { "select_next", "fallback" },
+      ["<S-k>"] = { "scroll_documentation_up", "fallback" },
+      ["<S-j>"] = { "scroll_documentation_down", "fallback" },
+      ["<C-e>"] = { "hide", "fallback" },
+      ["<A-1>"] = {
+        function(cmp)
+          cmp.accept({ index = 1 })
+        end,
+      },
+      ["<A-2>"] = {
+        function(cmp)
+          cmp.accept({ index = 2 })
+        end,
+      },
+      ["<A-3>"] = {
+        function(cmp)
+          cmp.accept({ index = 3 })
+        end,
+      },
+      ["<A-4>"] = {
+        function(cmp)
+          cmp.accept({ index = 4 })
+        end,
+      },
+      ["<A-5>"] = {
+        function(cmp)
+          cmp.accept({ index = 5 })
+        end,
+      },
+      ["<A-6>"] = {
+        function(cmp)
+          cmp.accept({ index = 6 })
+        end,
+      },
+      ["<A-7>"] = {
+        function(cmp)
+          cmp.accept({ index = 7 })
+        end,
+      },
+      ["<A-8>"] = {
+        function(cmp)
+          cmp.accept({ index = 8 })
+        end,
+      },
+      ["<A-9>"] = {
+        function(cmp)
+          cmp.accept({ index = 9 })
+        end,
+      },
+      ["<A-0>"] = {
+        function(cmp)
+          cmp.accept({ index = 10 })
+        end,
       },
     },
-    "saadparwaiz1/cmp_luasnip",
 
-    -- Adds other completion capabilities.
-    --  nvim-cmp does not ship with all sources by default. They are split
-    --  into multiple repos for maintenance purposes.
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
+    snippets = {
+      preset = "luasnip",
+      expand = function(snippet)
+        require("luasnip").lsp_expand(snippet)
+      end,
+      active = function(filter)
+        if filter and filter.direction then
+          return require("luasnip").jumpable(filter.direction)
+        end
+        return require("luasnip").in_snippet()
+      end,
+      jump = function(direction)
+        require("luasnip").jump(direction)
+      end,
+    },
 
-    -- If you want to add a bunch of pre-configured snippets,
-    --    you can use this plugin to help you. It even has snippets
-    --    for various frameworks/libraries/etc. but you will have to
-    --    set up the ones that are useful for you.
-    -- 'rafamadriz/friendly-snippets',
-  },
-  config = function()
-    -- See `:help cmp`
-    local cmp = require("cmp")
-    local luasnip = require("luasnip")
-    luasnip.setup({
-      history = true,
-      delete_check_events = "TextChanged",
-    })
-    local defaults = require("cmp.config.default")()
-
-    cmp.setup({
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
+    sources = {
+      default = {
+        "lsp",
+        "path",
+        "snippets",
+        "buffer",
       },
-      completion = { completeopt = "menu,menuone,noinsert" },
+      min_keyword_length = 2,
+    },
 
-      -- For an understanding of why these mappings were
-      -- chosen, you will need to read `:help ins-completion`
-      --
-      -- No, but seriously. Please read `:help ins-completion`, it is really good!
-      mapping = cmp.mapping.preset.insert({
-        ["<C-n>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.locally_jumpable(1) then
-            luasnip.jump(1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-
-        ["<C-p>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping(function(fallback)
-          -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
-          if cmp.visible() then
-            local entry = cmp.get_selected_entry()
-            if not entry then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            end
-            cmp.confirm()
-          else
-            fallback()
-          end
-        end, { "i", "s", "c" }),
-        ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping({
-          i = function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-            else
-              fallback()
-            end
-          end,
-          s = cmp.mapping.confirm({ select = true }),
-          c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-        }),
-        ["<C-CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
-      }),
-      matching = {
-        disallow_fuzzy_matching = false,
-        disallow_fullfuzzy_matching = false,
-        disallow_partial_fuzzy_matching = false,
-        disallow_partial_matching = false,
+    completion = {
+      trigger = {
+        -- When true, will show the completion window after typing a trigger character
+        show_on_trigger_character = true,
+        -- When both this and show_on_trigger_character are true, will show the completion window
+        -- when the cursor comes after a trigger character when entering insert mode
+        show_on_insert_on_trigger_character = true,
+        -- List of trigger characters (on top of `show_on_blocked_trigger_characters`) that won't trigger
+        -- the completion window when the cursor comes after a trigger character when
+        -- entering insert mode/accepting an item
+        show_on_x_blocked_trigger_characters = { "'", '"', "(", "{" },
+        -- or a function, similar to show_on_blocked_trigger_character
       },
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "path" },
-        { name = "luasnip" },
-      }, {
-        { name = "buffer" },
-      }),
-      sorting = defaults.sorting,
-      formatting = {
-        format = require("nvim-highlight-colors").format,
+      list = {
+        selection = { preselect = false, auto_insert = false },
       },
-    })
-    -- `/` cmdline setup.
-    cmp.setup.cmdline("/", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" },
-      },
-    })
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = "path" },
-      }, {
-        {
-          name = "cmdline",
-          option = {
-            ignore_cmds = { "Man", "!" },
+      menu = {
+        border = "single",
+        draw = {
+          components = {
+            kind_icon = {
+              ellipsis = false,
+              text = function(ctx)
+                local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+                return kind_icon
+              end,
+              -- Optionally, you may also use the highlights from mini.icons
+              highlight = function(ctx)
+                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                return hl
+              end,
+            },
           },
+          columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+          treesitter = { "lsp" },
         },
-      }),
-    })
-    -- friendly-snippets - enable standardized comments snippets
-    luasnip.filetype_extend("typescript", { "tsdoc" })
-    luasnip.filetype_extend("javascript", { "jsdoc" })
-  end,
+      },
+
+      -- experimental auto-brackets support
+      accept = {
+        auto_brackets = { enabled = true },
+      },
+
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 500,
+        treesitter_highlighting = true,
+        window = { border = "single" },
+      },
+
+      ghost_text = {
+        enabled = false,
+      },
+    },
+
+    signature = {
+      enabled = true,
+    },
+
+    cmdline = {
+      sources = function()
+        local type = vim.fn.getcmdtype()
+        -- Search forward and backward
+        if type == "/" or type == "?" then
+          return { "buffer", min_keyword_length = 0 }
+        end
+        -- Commands
+        if type == ":" or type == "@" then
+          return { "cmdline", min_keyword_length = 0 }
+        end
+        return {}
+      end,
+    },
+  },
+  -- allows extending the enabled_providers array elsewhere in your config
+  -- without having to redefine it
+  opts_extend = { "sources.default" },
 }
