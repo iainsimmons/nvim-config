@@ -63,12 +63,41 @@ return {
       "Bekaboo/dropbar.nvim",
       -- optional, but required for fuzzy finder support
       lazy = false,
-      config = function()
-        local dropbar_api = require("dropbar.api")
-        vim.keymap.set("n", "<leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
-        vim.keymap.set("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
-        vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
-      end,
+      opts = {
+        bar = {
+          sources = function()
+            local sources = require("dropbar.sources")
+            return { sources.path }
+          end,
+        },
+        icons = {
+          kinds = {
+            dir_icon = function()
+              return nil, nil
+            end,
+            file_icon = function()
+              return "󰈙 ", "DropBarIconKindFile"
+            end,
+          },
+        },
+        sources = {
+          path = {
+            max_depth = 5,
+            preview = false,
+            modified = function(sym)
+              return sym:merge({
+                name = sym.name,
+                icon = "󰷈 ",
+                name_hl = "MiniIconsYellow",
+                icon_hl = "MiniIconsYellow",
+              })
+            end,
+          },
+        },
+        symbol = {
+          on_click = function() end,
+        },
+      },
     },
   },
 }
