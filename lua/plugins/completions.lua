@@ -37,8 +37,6 @@ return {
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
       ["<C-p>"] = { "select_prev", "fallback" },
       ["<C-n>"] = { "select_next", "fallback" },
-      ["<Left>"] = { "snippet_backward", "fallback" },
-      ["<Right>"] = { "snippet_forward", "fallback" },
       ["<Up>"] = { "select_prev", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },
       ["<S-k>"] = { "scroll_documentation_up", "fallback" },
@@ -113,11 +111,14 @@ return {
     },
 
     sources = {
-      default = {
-        "lsp",
-        "path",
-        "snippets",
-        "buffer",
+      default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+      providers = {
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          -- make lazydev completions top priority (see `:h blink.cmp`)
+          score_offset = 100,
+        },
       },
       min_keyword_length = 2,
     },
