@@ -203,12 +203,5 @@ return { -- Collection of various small independent plugins/modules
         update_n_lines = "gsn", -- Update `n_lines`
       },
     })
-
-    require("mini.tabline").setup({
-      format = function(buf_id, label)
-        local suffix = vim.bo[buf_id].modified and "* " or ""
-        return MiniTabline.default_format(buf_id, label) .. suffix
-      end,
-    })
   end,
 }
