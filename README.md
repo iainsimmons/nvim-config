@@ -24,6 +24,10 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ## Plugins
 
+### bars-and-lines
+
++ [Bekaboo/dropbar.nvim](https://dotfyle.com/plugins/Bekaboo/dropbar.nvim)
+
 ### color
 
 + [brenoprata10/nvim-highlight-colors](https://dotfyle.com/plugins/brenoprata10/nvim-highlight-colors)
@@ -40,7 +44,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 
 ### completion
 
-+ [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
++ [Saghen/blink.cmp](https://dotfyle.com/plugins/Saghen/blink.cmp)
 
 ### csv-files
 
@@ -55,7 +59,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ### editing-support
 
 + [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
-+ [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
 + [nat-418/boole.nvim](https://dotfyle.com/plugins/nat-418/boole.nvim)
 + [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
 + [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
