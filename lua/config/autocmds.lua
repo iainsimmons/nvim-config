@@ -120,16 +120,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
--- Fix for weird Telescope issue where it opens the file in insert mode
--- https://github.com/nvim-telescope/telescope.nvim/issues/2027#issuecomment-1561836585
-vim.api.nvim_create_autocmd("WinLeave", {
-  callback = function()
-    if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
-    end
-  end,
-})
-
 -- Autocmd to track macro recording, And redraw statusline, which trigger
 -- macro function of mini.statusline
 vim.api.nvim_create_autocmd("RecordingEnter", {
