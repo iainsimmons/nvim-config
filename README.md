@@ -62,6 +62,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 + [nat-418/boole.nvim](https://dotfyle.com/plugins/nat-418/boole.nvim)
 + [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
 + [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
++ [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
 
 ### file-explorer
 
