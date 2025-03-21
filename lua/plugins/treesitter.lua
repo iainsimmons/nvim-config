@@ -15,6 +15,7 @@ return {
       require("nvim-treesitter.query_predicates")
     end,
     dependencies = {
+      { "nvim-treesitter/nvim-treesitter-context", opts = { mode = "cursor", max_lines = 3 } },
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
         config = function()
