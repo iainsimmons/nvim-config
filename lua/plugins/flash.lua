@@ -2,7 +2,16 @@ return {
   {
     "folke/flash.nvim",
     event = { "BufReadPost", "BufNewFile" },
-    opts = {},
+    opts = {
+      search = {
+        mode = "search",
+      },
+      modes = {
+        char = {
+          enabled = true,
+        },
+      },
+    },
     keys = {
       {
         "s",
