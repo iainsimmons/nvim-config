@@ -154,7 +154,7 @@ return {
   {
     "2kabhishek/nerdy.nvim",
     dependencies = {
-      "stevearc/dressing.nvim",
+      "folke/snacks.nvim",
     },
     cmd = "Nerdy",
     keys = {
