@@ -17,13 +17,13 @@ return {
         { "<leader>g", group = "Git" },
         { "<leader>n", group = "Noice" },
         { "<leader>q", group = "Quit/Session" },
-        { "<leader>r", group = "Replace" },
+        { "<leader>r", group = "Replace", icon = " " },
         { "<leader>s", group = "Search" },
         { "<leader>t", group = "Toggle" },
         { "<leader>u", group = "UI" },
         { "<leader>w", group = "Windows" },
         { "<leader>x", group = "Diagnostics/Quickfix" },
-        { "<leader>#", group = "Scratch" },
+        { "<leader>#", group = "Scratch", icon = "󰙨 " },
       })
       local presets = require("which-key.plugins.presets")
       presets.operators["d"] = nil
