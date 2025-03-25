@@ -1,6 +1,7 @@
 # Neovim Configuration
 
-![Neovim colorscheme](./iainsimmons_neovim_2025-03.png)
+![Neovim dashboard](./iainsimmons_neovim_2025-03-25.png)
+![Neovim editing](./iainsimmons_neovim_ui_2025-03-25.png)
 
 <a href="https://dotfyle.com/iainsimmons/nvim-config"><img src="https://dotfyle.com/iainsimmons/nvim-config/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/iainsimmons/nvim-config"><img src="https://dotfyle.com/iainsimmons/nvim-config/badges/leaderkey?style=flat" /></a>
