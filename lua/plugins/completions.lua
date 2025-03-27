@@ -114,7 +114,7 @@ return {
           fallbacks = {},
         },
         buffer = {
-          score_offset = -1,
+          score_offset = -2,
         },
         nerdfont = {
           module = "blink-nerdfont",
@@ -125,7 +125,7 @@ return {
         env = {
           name = "Env",
           module = "blink-cmp-env",
-          score_offset = -1,
+          score_offset = -3,
           opts = {
             item_kind = 6, -- require("blink.cmp.types").CompletionItemKind.Variable
             show_braces = false,
@@ -176,7 +176,7 @@ return {
 
       -- experimental auto-brackets support
       accept = {
-        auto_brackets = { enabled = true },
+        auto_brackets = { enabled = false },
       },
 
       documentation = {
@@ -208,15 +208,6 @@ return {
         end
         return {}
       end,
-    },
-
-    fuzzy = {
-      sorts = {
-        "exact",
-        -- defaults
-        "score",
-        "sort_text",
-      },
     },
   },
   -- allows extending the enabled_providers array elsewhere in your config
