@@ -107,6 +107,13 @@ return {
           -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
         },
+        lsp = {
+          transform_items = nil,
+          fallbacks = {},
+        },
+        buffer = {
+          score_offset = -1,
+        },
       },
       min_keyword_length = 2,
     },
@@ -183,6 +190,15 @@ return {
         end
         return {}
       end,
+    },
+
+    fuzzy = {
+      sorts = {
+        "exact",
+        -- defaults
+        "score",
+        "sort_text",
+      },
     },
   },
   -- allows extending the enabled_providers array elsewhere in your config
