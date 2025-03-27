@@ -14,6 +14,7 @@ return {
         })
       end,
     },
+    "MahanRahmati/blink-nerdfont.nvim",
   },
 
   -- use a release tag to download pre-built binaries
@@ -99,7 +100,7 @@ return {
     },
 
     sources = {
-      default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+      default = { "lazydev", "lsp", "path", "snippets", "buffer", "nerdfont" },
       providers = {
         lazydev = {
           name = "LazyDev",
@@ -113,6 +114,12 @@ return {
         },
         buffer = {
           score_offset = -1,
+        },
+        nerdfont = {
+          module = "blink-nerdfont",
+          name = "Nerd Fonts",
+          score_offset = 15, -- Tune by preference
+          opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
         },
       },
       min_keyword_length = 2,
