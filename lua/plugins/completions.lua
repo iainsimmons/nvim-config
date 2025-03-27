@@ -15,6 +15,7 @@ return {
       end,
     },
     "MahanRahmati/blink-nerdfont.nvim",
+    "bydlw98/blink-cmp-env",
   },
 
   -- use a release tag to download pre-built binaries
@@ -100,7 +101,7 @@ return {
     },
 
     sources = {
-      default = { "lazydev", "lsp", "path", "snippets", "buffer", "nerdfont" },
+      default = { "lazydev", "lsp", "path", "snippets", "buffer", "nerdfont", "env" },
       providers = {
         lazydev = {
           name = "LazyDev",
@@ -120,6 +121,16 @@ return {
           name = "Nerd Fonts",
           score_offset = 15, -- Tune by preference
           opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
+        },
+        env = {
+          name = "Env",
+          module = "blink-cmp-env",
+          score_offset = -1,
+          opts = {
+            item_kind = 6, -- require("blink.cmp.types").CompletionItemKind.Variable
+            show_braces = false,
+            show_documentation_window = true,
+          },
         },
       },
       min_keyword_length = 2,
