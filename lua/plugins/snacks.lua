@@ -583,7 +583,21 @@ return {
         end
 
         -- Create some toggle mappings
-        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map([[\b]])
+        Snacks.toggle
+          .new({
+            id = "transparent_bg",
+            name = "Transparent Background",
+            get = function()
+              return require("tokyonight.config").options.transparent
+            end,
+            set = function(state)
+              local theme_opts = require("tokyonight.config").options
+              theme_opts.transparent = state
+              require("tokyonight").setup(theme_opts)
+              vim.cmd([[colorscheme tokyonight]])
+            end,
+          })
+          :map([[\b]])
         Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map([[\c]])
         Snacks.toggle.option("cursorcolumn", { name = "Cursor Column" }):map([[\|]])
         Snacks.toggle.option("cursorline", { name = "Cursor Line" }):map([[\-]])
