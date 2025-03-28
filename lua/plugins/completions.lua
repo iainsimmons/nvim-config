@@ -4,16 +4,6 @@ return {
   version = "*",
   dependencies = {
     "rafamadriz/friendly-snippets",
-    {
-      "L3MON4D3/LuaSnip",
-      version = "v2.*",
-      build = "make install_jsregexp",
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load({
-          paths = { vim.fn.stdpath("config") .. "/snippets" },
-        })
-      end,
-    },
     "MahanRahmati/blink-nerdfont.nvim",
     "bydlw98/blink-cmp-env",
   },
@@ -94,10 +84,6 @@ return {
           cmp.accept({ index = 10 })
         end,
       },
-    },
-
-    snippets = {
-      preset = "luasnip",
     },
 
     sources = {
