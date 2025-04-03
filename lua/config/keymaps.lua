@@ -39,6 +39,8 @@ map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer", silent = true, norem
 map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Previous Buffer", silent = true, noremap = true })
 map("n", "<leader>bb", "<cmd>b#<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader><Tab>", "<cmd>b#<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- Add undo break-points
 map("i", ",", ",<c-g>u")

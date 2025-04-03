@@ -158,6 +158,13 @@ return {
       desc = "Delete Buffer",
     },
     {
+      "<leader>bo",
+      function()
+        Snacks.bufdelete.other()
+      end,
+      desc = "Delete Other Buffers",
+    },
+    {
       "<leader>gg",
       function()
         Snacks.lazygit()
