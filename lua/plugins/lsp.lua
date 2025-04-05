@@ -215,17 +215,6 @@ return {
     end,
   },
   {
-    "rachartier/tiny-inline-diagnostic.nvim",
-    event = "VeryLazy",
-    priority = 1000, -- needs to be loaded in first
-    config = function()
-      vim.diagnostic.config({ virtual_text = false })
-      require("tiny-inline-diagnostic").setup({
-        preset = "powerline",
-      })
-    end,
-  },
-  {
     "linux-cultist/venv-selector.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",

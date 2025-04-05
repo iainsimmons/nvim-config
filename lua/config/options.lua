@@ -19,3 +19,5 @@ vim.filetype.add({
     ["*.csv"] = "csv_semicolon",
   },
 })
+
+vim.diagnostic.config({ virtual_text = { current_line = true } })
