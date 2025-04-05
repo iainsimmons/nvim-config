@@ -27,6 +27,9 @@ return {
           enabled = true,
           view = "mini",
         },
+        signature = {
+          enabled = false,
+        },
       },
       messages = {
         -- NOTE: If you enable messages, then the cmdline is enabled automatically.
