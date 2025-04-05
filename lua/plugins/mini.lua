@@ -76,6 +76,13 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniFilesActionRename",
+      callback = function(event)
+        Snacks.rename.on_rename_file(event.data.from, event.data.to)
+      end,
+    })
+
     vim.keymap.set("n", "-", function()
       local buffer_name = vim.api.nvim_buf_get_name(0)
       if buffer_name == "" or string.match(buffer_name, "Dashboard") then
