@@ -541,7 +541,7 @@ return {
       desc = "Goto Definition",
     },
     {
-      "gr",
+      "gR",
       function()
         Snacks.picker.lsp_references()
       end,

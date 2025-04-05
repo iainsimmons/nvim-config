@@ -46,7 +46,7 @@ return {
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header
-          map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+          -- map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
           -- local client = vim.lsp.get_client_by_id(event.data.client_id)
           -- The following autocommand is used to enable inlay hints in your
