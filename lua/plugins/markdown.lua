@@ -14,8 +14,17 @@ return {
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "md", "markdown" },
-    opts = {},
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+    ft = { "markdown" },
+    opts = {
+      render_modes = true,
+      completions = { lsp = { enabled = true } },
+      heading = {
+        position = "inline",
+        width = "block",
+        left_pad = 2,
+        right_pad = 3,
+      },
+    },
   },
 }
