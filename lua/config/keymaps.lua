@@ -177,5 +177,5 @@ map("n", "B", "_", { noremap = false })
 map("n", "<leader>cv", "ggVG", { silent = true, noremap = true, desc = "[V]isual Select All" })
 
 -- execute line as lua
-map("n", "<leader>x", "<CMD>.lua<CR>", { desc = "E[X]ecute line as Lua code" })
-map("v", "<leader>x", "<CMD>lua<CR>", { desc = "E[X]ecute line as Lua code" })
+map("n", "<leader>cx", "<CMD>.lua<CR>", { desc = "E[X]ecute line as Lua code" })
+map("v", "<leader>cx", "<CMD>lua<CR>", { desc = "E[X]ecute line as Lua code" })
