@@ -69,6 +69,15 @@ return {
             local sources = require("dropbar.sources")
             return { sources.path }
           end,
+          update_events = {
+            win = {
+              "WinEnter",
+              "WinResized",
+            },
+            buf = {
+              "FileChangedShellPost",
+            },
+          },
         },
         icons = {
           kinds = {
