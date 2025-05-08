@@ -70,9 +70,9 @@ return { -- Collection of various small independent plugins/modules
         close = "<ESC>",
       },
       windows = {
-        preview = true,
-        border = "solid",
-        width_preview = 80,
+        width_focus = 30,
+        width_nofocus = 30,
+        border = "single",
       },
     })
 
