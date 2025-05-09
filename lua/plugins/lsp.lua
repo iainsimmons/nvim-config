@@ -180,18 +180,19 @@ return {
       vim.list_extend(ensure_installed, {
         "astro-language-server",
         "cbfmt",
+        "css-lsp",
+        "css-variables-language-server",
         "emmet-ls",
         "eslint-lsp",
         "glint",
         "html-lsp",
-        "htmx-lsp",
         "json-lsp",
+        "kulala-fmt",
         "lemminx",
         "lua-language-server",
         "markdownlint",
         "marksman",
         "prettierd",
-        "basedpyright",
         "shfmt",
         "stylua",
         "svelte-language-server",
@@ -202,31 +203,15 @@ return {
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-      require("mason-lspconfig").setup({
-        automatic_installation = true,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-            require("lspconfig")[server_name].setup(server)
-          end,
-        },
-      })
+      require("mason-lspconfig").setup()
+
+      for server_name, config in pairs(servers) do
+        vim.lsp.config(server_name, {
+          capabilities = capabilities,
+          settings = config,
+          filetypes = (config or {}).filetypes,
+        })
+      end
     end,
-  },
-  {
-    "linux-cultist/venv-selector.nvim",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
-    lazy = false,
-    ft = { "python" },
-    branch = "regexp", -- This is the regexp branch, use this for the new version
-    config = function()
-      require("venv-selector").setup()
-    end,
-    keys = {
-      { ",v", "<cmd>VenvSelect<cr>" },
-    },
   },
 }
