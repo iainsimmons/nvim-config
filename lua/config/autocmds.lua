@@ -152,3 +152,12 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
     vim.cmd("setlocal nobomb")
   end,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  once = true,
+  callback = function()
+    vim.schedule(function()
+      vim.cmd("clearjumps")
+    end)
+  end,
+})
