@@ -214,4 +214,8 @@ return {
       end
     end,
   },
+  {
+    "yarospace/dev-tools.nvim",
+    event = "BufReadPost",
+  },
 }
