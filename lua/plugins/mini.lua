@@ -68,6 +68,10 @@ return { -- Collection of various small independent plugins/modules
     require("mini.files").setup({
       mappings = {
         close = "<ESC>",
+        go_in = "l",
+        go_in_plus = "<CR>",
+        go_out = "H",
+        go_out_plus = "h",
       },
       windows = {
         width_focus = 30,
@@ -83,14 +87,17 @@ return { -- Collection of various small independent plugins/modules
       end,
     })
 
-    vim.keymap.set("n", "-", function()
+    local open_mini_files = function()
       local buffer_name = vim.api.nvim_buf_get_name(0)
       if buffer_name == "" or string.match(buffer_name, "Dashboard") then
         require("mini.files").open(vim.uv.cwd())
       else
         require("mini.files").open(vim.api.nvim_buf_get_name(0))
       end
-    end, { desc = "Mini Files" })
+    end
+
+    vim.keymap.set("n", "-", open_mini_files, { desc = "Mini Files" })
+    vim.keymap.set("n", "<leader>fm", open_mini_files, { desc = "Mini Files" })
 
     require("mini.git").setup()
     vim.keymap.set({ "n", "x" }, "<leader>gs", "<CMD>lua MiniGit.show_at_cursor()<CR>", { desc = "Show at cursor" })
