@@ -511,14 +511,14 @@ return {
       desc = "Quickfix List",
     },
     {
-      "<leader>sr",
+      "<leader>sR",
       function()
         Snacks.picker.recent()
       end,
       desc = "Recent",
     },
     {
-      "<leader>sR",
+      "<leader>sr",
       function()
         Snacks.picker.resume()
       end,
