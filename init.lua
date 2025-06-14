@@ -147,7 +147,7 @@ require("lazy").setup({
 ![Neovim dashboard](./iainsimmons_neovim_2025-03-25.png)
 ![Neovim editing](./iainsimmons_neovim_ui_2025-03-25.png)
 
-## dotfiles
+## ⚙️ dotfiles
 
 Looking for the rest of my dotfiles? You can find those over at [iainsimmons/dotfiles](https://github.com/iainsimmons/dotfiles).
 

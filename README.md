@@ -3,7 +3,7 @@
 ![Neovim dashboard](./iainsimmons_neovim_2025-03-25.png)
 ![Neovim editing](./iainsimmons_neovim_ui_2025-03-25.png)
 
-## dotfiles
+## ⚙️ dotfiles
 
 Looking for the rest of my dotfiles? You can find those over at [iainsimmons/dotfiles](https://github.com/iainsimmons/dotfiles).
 
@@ -81,3 +81,4 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [wezterm-types](https://github.com/justinsgithub/wezterm-types)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 - [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
+
