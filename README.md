@@ -1,13 +1,13 @@
-# Neovim Configuration
+# iainvim: Iain Simmons' Neovim configuration
 
 ![Neovim dashboard](./iainsimmons_neovim_2025-03-25.png)
 ![Neovim editing](./iainsimmons_neovim_ui_2025-03-25.png)
 
-<a href="https://dotfyle.com/iainsimmons/nvim-config"><img src="https://dotfyle.com/iainsimmons/nvim-config/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/iainsimmons/nvim-config"><img src="https://dotfyle.com/iainsimmons/nvim-config/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/iainsimmons/nvim-config"><img src="https://dotfyle.com/iainsimmons/nvim-config/badges/plugin-manager?style=flat" /></a>
+## dotfiles
 
-## Install Instructions
+Looking for the rest of my dotfiles? You can find those over at [iainsimmons/dotfiles](https://github.com/iainsimmons/dotfiles).
+
+## 🔧 Install instructions
 
 > Install requires Neovim 0.11+. Always review the code before installing a configuration.
 
@@ -23,157 +23,61 @@ Open Neovim with this config:
 NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 ```
 
-## Plugins
+## 💤 Plugin manager
 
-### bars-and-lines
+- [lazy.nvim](https://github.com/folke/lazy.nvim)
 
-+ [Bekaboo/dropbar.nvim](https://dotfyle.com/plugins/Bekaboo/dropbar.nvim)
+## 🔌 Plugins
 
-### color
-
-+ [brenoprata10/nvim-highlight-colors](https://dotfyle.com/plugins/brenoprata10/nvim-highlight-colors)
-+ [rasulomaroff/reactive.nvim](https://dotfyle.com/plugins/rasulomaroff/reactive.nvim)
-
-### colorscheme
-
-+ [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
-
-### comment
-
-+ [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
-+ [JoosepAlviste/nvim-ts-context-commentstring](https://dotfyle.com/plugins/JoosepAlviste/nvim-ts-context-commentstring)
-
-### completion
-
-+ [Saghen/blink.cmp](https://dotfyle.com/plugins/Saghen/blink.cmp)
-
-### csv-files
-
-+ [hat0uma/csvview.nvim](https://dotfyle.com/plugins/hat0uma/csvview.nvim)
-
-### debugging
-
-+ [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
-+ [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
-+ [theHamsta/nvim-dap-virtual-text](https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text)
-
-### editing-support
-
-+ [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
-+ [nat-418/boole.nvim](https://dotfyle.com/plugins/nat-418/boole.nvim)
-+ [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
-+ [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
-+ [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
-
-### file-explorer
-
-+ [mikavilpas/yazi.nvim](https://dotfyle.com/plugins/mikavilpas/yazi.nvim)
-
-### formatting
-
-+ [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
-
-### icon
-
-+ [2KAbhishek/nerdy.nvim](https://github.com/2KAbhishek/nerdy.nvim)
-
-### keybinding
-
-+ [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
-
-### lsp
-
-+ [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-+ [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
-+ [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
-+ [rachartier/tiny-inline-diagnostic.nvim](https://dotfyle.com/plugins/rachartier/tiny-inline-diagnostic.nvim)
-
-### lsp-installer
-
-+ [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
-
-### markdown-and-latex
-
-+ [davidgranstrom/nvim-markdown-preview](https://dotfyle.com/plugins/davidgranstrom/nvim-markdown-preview)
-+ [MeanderingProgrammer/render-markdown.nvim](https://dotfyle.com/plugins/MeanderingProgrammer/render-markdown.nvim)
-
-### motion
-
-+ [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
-+ [sphamba/smear-cursor.nvim](https://dotfyle.com/plugins/sphamba/smear-cursor.nvim)
-
-### nvim-dev
-
-+ [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
-+ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
-+ [folke/lazydev.nvim](https://dotfyle.com/plugins/folke/lazydev.nvim)
-
-### plugin-manager
-
-+ [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
-
-### quickfix
-
-+ [kevinhwang91/nvim-bqf](https://dotfyle.com/plugins/kevinhwang91/nvim-bqf)
-
-### search
-
-+ [MagicDuck/grug-far.nvim](https://dotfyle.com/plugins/MagicDuck/grug-far.nvim)
-
-### session
-
-+ [folke/persistence.nvim](https://dotfyle.com/plugins/folke/persistence.nvim)
-
-### snippet
-
-+ [TobinPalmer/rayso.nvim](https://dotfyle.com/plugins/TobinPalmer/rayso.nvim)
-+ [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
-
-### syntax
-
-+ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
-+ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
-
-### utility
-
-+ [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
-+ [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
-+ [jellydn/hurl.nvim](https://dotfyle.com/plugins/jellydn/hurl.nvim)
-
-## Language Servers
-
-+ astro
-+ basedpyright
-+ emmet_ls
-+ eslint
-+ glint
-+ html
-+ htmx
-+ jsonls
-+ lemminx
-+ lua_ls
-+ marksman
-+ svelte
-+ tailwindcss
-+ ts_ls
-+ yamlls
-
-## Formatters
-
-+ black
-+ cbfmt
-+ isort
-+ markdownlint
-+ prettierd
-+ shfmt
-+ stylua
-+ xmlformatter
-
-## Linters
-
-+ eslint
-+ glint
-+ markdownlint
-+ stylelint
-
- This readme was generated by [Dotfyle](https://dotfyle.com)
+- [blink-cmp-env](https://github.com/bydlw98/blink-cmp-env)
+- [blink-nerdfont.nvim](https://github.com/MahanRahmati/blink-nerdfont.nvim)
+- [blink.cmp](https://github.com/saghen/blink.cmp)
+- [boole.nvim](https://github.com/nat-418/boole.nvim)
+- [conform.nvim](https://github.com/stevearc/conform.nvim)
+- [csvview.nvim](https://github.com/hat0uma/csvview.nvim)
+- [dev-tools.nvim](https://github.com/yarospace/dev-tools.nvim)
+- [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim)
+- [fidget.nvim](https://github.com/j-hui/fidget.nvim)
+- [flash.nvim](https://github.com/folke/flash.nvim)
+- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim)
+- [highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)
+- [kulala.nvim](https://github.com/mistweaverco/kulala.nvim)
+- [lazy.nvim](https://github.com/folke/lazy.nvim)
+- [lazydev.nvim](https://github.com/folke/lazydev.nvim)
+- [log-highlight.nvim](https://github.com/fei6409/log-highlight.nvim)
+- [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
+- [mason.nvim](https://github.com/williamboman/mason.nvim)
+- [mini.nvim](https://github.com/echasnovski/mini.nvim)
+- [noice.nvim](https://github.com/folke/noice.nvim)
+- [nui.nvim](https://github.com/MunifTanjim/nui.nvim)
+- [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf)
+- [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors)
+- [nvim-lint](https://github.com/mfussenegger/nvim-lint)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [nvim-markdown-preview](https://github.com/davidgranstrom/nvim-markdown-preview)
+- [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
+- [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
+- [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
+- [persistence.nvim](https://github.com/folke/persistence.nvim)
+- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [promise-async](https://github.com/kevinhwang91/promise-async)
+- [rainbow_csv](https://github.com/mechatroner/rainbow_csv)
+- [rayso.nvim](https://github.com/TobinPalmer/rayso.nvim)
+- [reactive.nvim](https://github.com/rasulomaroff/reactive.nvim)
+- [refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim)
+- [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+- [smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)
+- [snacks.nvim](https://github.com/folke/snacks.nvim)
+- [text-case.nvim](https://github.com/johmsalas/text-case.nvim)
+- [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- [undotree](https://github.com/mbbill/undotree)
+- [vim-sleuth](https://github.com/tpope/vim-sleuth)
+- [wezterm-types](https://github.com/justinsgithub/wezterm-types)
+- [which-key.nvim](https://github.com/folke/which-key.nvim)
+- [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
