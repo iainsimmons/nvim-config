@@ -20,12 +20,18 @@ local icons = {
 
 return {
   "mfussenegger/nvim-dap",
-  enabled = false,
+  enabled = true,
   recommended = true,
   desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
 
   dependencies = {
-
+    {
+      "Joakker/lua-json5",
+      build = "./install.sh",
+      config = function(_, opts)
+        table.insert(vim._so_trails, "/?.dylib")
+      end,
+    },
     -- fancy UI for the debugger
     {
       "rcarriga/nvim-dap-ui",
@@ -116,6 +122,34 @@ return {
     { "<leader>ds", function() require("dap").session() end, desc = "Session" },
     { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+    { "<leader>dJ", function() 
+      -- create launch.json for JS debugging, after prompting for the localhost port number
+      vim.ui.input({prompt = "localhost port: "}, function (port)
+        local f = assert(io.open(".vscode/launch.json", "w"))
+        local launch = {
+          version = "0.2.0",
+          configurations = {
+            {
+              type = "chrome",
+              request = "launch",
+              name = 'Start Chrome with "localhost:' .. port .. '"',
+              url = "http://localhost:" .. port,
+              webRoot = "${workspaceFolder}",
+              skipFiles = {"${workspaceFolder}/node_modules/**/*.js"},
+              userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
+            }
+          }
+        }
+        f:write(vim.json.encode(launch))
+        f:close()
+
+        -- format with jq
+        local obj = vim.system({"jq", ".", ".vscode/launch.json"}, { text = true }):wait()
+        f = assert(io.open(".vscode/launch.json", "w"))
+        f:write(obj.stdout)
+        f:close()
+      end)
+    end, desc = "Initialise debug launch.json for JS"},
   },
 
   config = function()
@@ -128,20 +162,6 @@ return {
     end
 
     -- setup dap config by VsCode launch.json file
-    local vscode = require("dap.ext.vscode")
-    local _filetypes = require("mason-nvim-dap.mappings.filetypes")
-    local filetypes = vim.tbl_deep_extend("force", _filetypes, {
-      ["chrome"] = { "javascriptreact", "typescriptreact", "typescript", "javascript" },
-      ["pwa-chrome"] = { "javascriptreact", "typescriptreact", "typescript", "javascript" },
-      ["node"] = { "javascriptreact", "typescriptreact", "typescript", "javascript" },
-      ["pwa-node"] = { "javascriptreact", "typescriptreact", "typescript", "javascript" },
-    })
-    local json = require("plenary.json")
-    vscode.json_decode = function(str)
-      return vim.json.decode(json.json_strip_comments(str, {}))
-    end
-    vscode.load_launchjs(nil, filetypes)
-
     local js_based_languages = { "typescript", "javascript", "typescriptreact" }
 
     for _, language in ipairs(js_based_languages) do
@@ -163,7 +183,7 @@ return {
         {
           type = "chrome",
           request = "launch",
-          name = 'Start Chrome with "localhost"',
+          name = 'Start Chrome with "localhost:3000"',
           url = "http://localhost:3000",
           webRoot = "${workspaceFolder}",
           userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
