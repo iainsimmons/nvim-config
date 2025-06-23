@@ -28,13 +28,14 @@ return {
     {
       "Joakker/lua-json5",
       build = "./install.sh",
-      config = function(_, opts)
+      config = function()
         table.insert(vim._so_trails, "/?.dylib")
       end,
     },
     -- fancy UI for the debugger
     {
       "rcarriga/nvim-dap-ui",
+      enabled = false,
       dependencies = { "nvim-neotest/nvim-nio" },
       -- stylua: ignore
       keys = {
@@ -55,6 +56,58 @@ return {
         dap.listeners.before.event_exited["dapui_config"] = function()
           dapui.close({})
         end
+      end,
+    },
+
+    {
+      "igorlfs/nvim-dap-view",
+      ---@module 'dap-view'
+      ---@type dapview.Config
+      ---@diagnostic disable-next-line: assign-type-mismatch
+      config = function()
+        local opts = {
+          winbar = {
+            show = true,
+            -- You can add a "console" section to merge the terminal with the other views
+            sections = { "scopes", "watches", "breakpoints", "repl", "threads", "exceptions", "console" },
+            default_section = "scopes",
+            controls = { enabled = true },
+          },
+          windows = {
+            terminal = {
+              hide = {
+                "javascript",
+                "typescript",
+                "javascriptreact",
+                "typescriptreact",
+              },
+              start_hidden = true,
+            },
+          },
+        }
+
+        vim.api.nvim_create_autocmd({ "FileType" }, {
+          pattern = { "dap-view", "dap-view-term", "dap-repl" }, -- dap-repl is set by `nvim-dap`
+          callback = function(evt)
+            vim.keymap.set("n", "q", "<C-w>q", { buffer = evt.buf })
+          end,
+        })
+
+        local dap, dv = require("dap"), require("dap-view")
+        dap.listeners.before.attach["dap-view-config"] = function()
+          dv.open()
+        end
+        dap.listeners.before.launch["dap-view-config"] = function()
+          dv.open()
+        end
+        dap.listeners.before.event_terminated["dap-view-config"] = function()
+          dv.close(true)
+        end
+        dap.listeners.before.event_exited["dap-view-config"] = function()
+          dv.close(true)
+        end
+
+        dv.setup(opts)
       end,
     },
 
@@ -121,8 +174,8 @@ return {
     { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
     { "<leader>ds", function() require("dap").session() end, desc = "Session" },
     { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
-    { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
-    { "<leader>dJ", function() 
+    -- { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+    { "<leader>dJ", function()
       -- create launch.json for JS debugging, after prompting for the localhost port number
       vim.ui.input({prompt = "localhost port: "}, function (port)
         local f = assert(io.open(".vscode/launch.json", "w"))
