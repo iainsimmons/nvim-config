@@ -32,7 +32,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [blink-cmp-env](https://github.com/bydlw98/blink-cmp-env)
 - [blink-nerdfont.nvim](https://github.com/MahanRahmati/blink-nerdfont.nvim)
 - [blink.cmp](https://github.com/saghen/blink.cmp)
-- [boole.nvim](https://github.com/nat-418/boole.nvim)
+- [boole.nvim](https://github.com/Susensio/boole.nvim)
 - [conform.nvim](https://github.com/stevearc/conform.nvim)
 - [csvview.nvim](https://github.com/hat0uma/csvview.nvim)
 - [dev-tools.nvim](https://github.com/yarospace/dev-tools.nvim)
@@ -46,13 +46,19 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 - [lazydev.nvim](https://github.com/folke/lazydev.nvim)
 - [log-highlight.nvim](https://github.com/fei6409/log-highlight.nvim)
+- [lua-json5](https://github.com/Joakker/lua-json5)
 - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 - [mason.nvim](https://github.com/williamboman/mason.nvim)
 - [mini.nvim](https://github.com/echasnovski/mini.nvim)
+- [neoconf.nvim](https://github.com/folke/neoconf.nvim)
 - [noice.nvim](https://github.com/folke/noice.nvim)
 - [nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf)
+- [nvim-dap-view](https://github.com/igorlfs/nvim-dap-view)
+- [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
+- [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 - [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors)
 - [nvim-lint](https://github.com/mfussenegger/nvim-lint)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
@@ -80,5 +86,12 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [vim-sleuth](https://github.com/tpope/vim-sleuth)
 - [wezterm-types](https://github.com/justinsgithub/wezterm-types)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
-- [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
 
+## Generating this README
+
+To generate this file:
+
+1. Open Lazy (`:Lazy`)
+2. Put the cursor over a plugin name
+3. Press `<localleader>r` (`localleader` is set to `,` in my config)
+4. You should see a message "README.md succesfully generated"

@@ -188,6 +188,21 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
             table.insert(file_content, p)
           end
 
+          table.insert(
+            file_content,
+            [[
+
+## Generating this README
+
+To generate this file:
+
+1. Open Lazy (`:Lazy`)
+2. Put the cursor over a plugin name
+3. Press `<localleader>r` (`localleader` is set to `,` in my config)
+4. You should see a message "README.md succesfully generated"
+]]
+          )
+
           local file, err = io.open(vim.fn.stdpath("config") .. "/README.md", "w")
           if not file then
             vim.notify("didn't work!", vim.log.levels.ERROR, {})
