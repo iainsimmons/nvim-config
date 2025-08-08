@@ -1,4 +1,5 @@
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir-kickstart"
+vim.opt.swapfile = false
 vim.opt.wrap = true
 vim.opt.conceallevel = 0
 vim.opt.diffopt = "internal,filler,closeoff,vertical"
