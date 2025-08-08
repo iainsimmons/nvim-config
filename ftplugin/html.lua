@@ -1,3 +1,16 @@
+-- Use spaces instead of tabs
+vim.opt_local.expandtab = true
+
+-- Set indentation width to 4 spaces (common for HTML)
+vim.opt_local.shiftwidth = 4
+vim.opt_local.tabstop = 4
+
+-- Make softtabstop equal to shiftwidth for consistent behavior
+vim.opt_local.softtabstop = 4
+
+-- Enable smart indentation
+vim.opt_local.smartindent = true
+
 -- https://medium.com/scoro-engineering/5-smart-mini-snippets-for-making-text-editing-more-fun-in-neovim-b55ffb96325a
 vim.keymap.set("i", "=", function()
   -- The cursor location does not give us the correct node in this case, so we
