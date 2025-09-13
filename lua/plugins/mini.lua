@@ -170,8 +170,8 @@ return { -- Collection of various small independent plugins/modules
           end
 
           local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 200 })
-          local diff = MiniStatusline.section_diff({ trunc_width = 75, icon = "󰊢 " })
-          local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+          -- local diff = MiniStatusline.section_diff({ trunc_width = 75, icon = "󰊢 " })
+          -- local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
           local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 200 })
           local location = MiniStatusline.section_location({ trunc_width = 200 })
           local search = MiniStatusline.section_searchcount({ trunc_width = 75 })
@@ -179,7 +179,7 @@ return { -- Collection of various small independent plugins/modules
 
           return MiniStatusline.combine_groups({
             { hl = mode_hl, strings = { mode } },
-            { hl = "MiniStatuslineDevinfo", strings = { diff, diagnostics } },
+            { hl = "MiniStatuslineDevinfo", strings = {} },
             "%<", -- Mark general truncate point
             "%=", -- End left alignment
             { hl = "MiniStatuslineFilename", strings = { macro } },
