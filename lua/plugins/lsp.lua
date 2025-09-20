@@ -1,7 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile", "BufWritePre" },
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for neovim
       { "williamboman/mason.nvim", config = true },
@@ -17,7 +17,7 @@ return {
       -- Allows extra capabilities provided by nvim-cmp
       -- "hrsh7th/cmp-nvim-lsp",
     },
-    config = function()
+    config = vim.schedule_wrap(function()
       --  This function gets run when an LSP attaches to a particular buffer.
       --    That is to say, every time a new file is opened that is associated with
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -212,7 +212,7 @@ return {
           filetypes = (config or {}).filetypes,
         })
       end
-    end,
+    end),
   },
   {
     "yarospace/dev-tools.nvim",
