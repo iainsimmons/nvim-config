@@ -87,7 +87,10 @@ return {
     },
 
     sources = {
-      default = { "lazydev", "lsp", "path", "snippets", "buffer", "nerdfont", "env" },
+      default = { "lsp", "path", "snippets", "buffer", "nerdfont", "env" },
+      per_filetype = {
+        lua = { inherit_defaults = true, "lazydev" },
+      },
       providers = {
         lazydev = {
           name = "LazyDev",
