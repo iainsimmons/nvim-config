@@ -34,11 +34,11 @@ return {
 
           -- Rename the variable under your cursor
           --  Most Language Servers support renaming across files, etc.
-          map("<leader>cr", vim.lsp.buf.rename, "[R]ename")
+          map("<leader>cr", vim.lsp.buf.rename, "Rename")
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+          map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap
@@ -46,7 +46,7 @@ return {
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header
-          -- map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+          -- map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
           -- local client = vim.lsp.get_client_by_id(event.data.client_id)
           -- The following autocommand is used to enable inlay hints in your
@@ -57,7 +57,7 @@ return {
           --   map("<leader>uh", function()
           --     print("Inlay Hints Enabled: " .. tostring(not vim.lsp.inlay_hint.is_enabled({})))
           --     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-          --   end, "Toggle Inlay [H]ints")
+          --   end, "Toggle Inlay Hints")
           -- end
         end,
       })

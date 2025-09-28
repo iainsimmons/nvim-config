@@ -8,13 +8,13 @@ return {
     {
       "<leader>fr",
       "<CMD>GrugFar<CR>",
-      desc = "[F]ind and [R]eplace",
+      desc = "Find and Replace",
       mode = "n",
     },
     {
       "<leader>fr",
       "<CMD>lua require('grug-far').with_visual_selection()<CR>",
-      desc = "[F]ind and [R]eplace Visual Selection",
+      desc = "Find and Replace Visual Selection",
       mode = "v",
     },
   },

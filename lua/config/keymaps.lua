@@ -129,10 +129,10 @@ map("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 -- Reveal folder of current file
 map("n", "<leader>fe", ":! open %:h<CR>", { desc = "Reveal folder of current file in Finder", silent = true })
 
-map("n", "<leader>ga", ":! git add -f %<CR>", { desc = "[G]it [A]dd (force) current file", silent = true })
+map("n", "<leader>ga", ":! git add -f %<CR>", { desc = "Git Add (force) current file", silent = true })
 
-map("n", "<leader>cc", ":%y+<CR>", { desc = "[C]opy [C]urrent file", silent = true })
-map("n", "<leader>cn", ":let @+=@%<CR>", { desc = "[C]opy Current file [N]ame", silent = true })
+map("n", "<leader>cc", ":%y+<CR>", { desc = "Copy Current file", silent = true })
+map("n", "<leader>cn", ":let @+=@%<CR>", { desc = "Copy Current file Name", silent = true })
 
 -- https://github.com/stevedylandev/dotfiles/blob/main/nvim/lua/keymaps.lua
 -- If I visually select words and paste from clipboard, don't replace my
@@ -161,8 +161,8 @@ map("x", "@", ":norm @q<CR>", { silent = false })
 -- Using the keymap will take the word under the cursor
 -- and populate the beginning of a global search and replace command
 -- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjojs2y/
-map("n", "<leader>rw", ":%s/<C-r><C-w>/", { silent = false })
-map("n", "<leader>rW", ":%s/<C-r><C-a>/", { silent = false })
+map("n", "<leader>rw", ":%s/<C-r><C-w>/", { silent = false, desc = "Replace word under cursor" })
+map("n", "<leader>rW", ":%s/<C-r><C-a>/", { silent = false, desc = "Replace Word under cursor" })
 
 -- search within selected block of code
 -- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjym8kg/
@@ -174,11 +174,11 @@ map("n", "E", "$", { noremap = false })
 map("n", "B", "_", { noremap = false })
 
 -- select all / entire buffer
-map("n", "<leader>cv", "ggVG", { silent = true, noremap = true, desc = "[V]isual Select All" })
+map("n", "<leader>cv", "ggVG", { silent = true, noremap = true, desc = "Visual Select All" })
 
 -- execute line as lua
-map("n", "<leader>cx", "<CMD>.lua<CR>", { desc = "E[X]ecute line as Lua code" })
-map("v", "<leader>cx", "<CMD>lua<CR>", { desc = "E[X]ecute line as Lua code" })
+map("n", "<leader>cx", "<CMD>.lua<CR>", { desc = "Execute line as Lua code" })
+map("v", "<leader>cx", "<CMD>lua<CR>", { desc = "Execute line as Lua code" })
 
 -- generate README
 map("n", "<leader>rm", function()

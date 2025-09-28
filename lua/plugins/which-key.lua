@@ -3,6 +3,10 @@ return { -- Useful plugin to show you pending keybinds.
   event = "VeryLazy", -- Sets the loading event to 'VeryLazy'
   opts = {
     plugins = { spelling = true },
+    preset = "helix",
+    icons = {
+      separator = "│",
+    },
   },
   config = function(_, opts) -- This is the function that runs, AFTER loading
     local wk = require("which-key")

@@ -82,7 +82,7 @@ return {
         require("conform").format({ async = true, timeout_ms = 1000, lsp_format = "fallback" })
       end,
       mode = "n",
-      desc = "[F]ormat buffer",
+      desc = "Format buffer",
     },
   },
 }
