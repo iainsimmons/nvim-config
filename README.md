@@ -1,28 +1,28 @@
 # iainvim: Iain Simmons' Neovim configuration
 
-![Neovim dashboard](./iainsimmons_neovim_2025-03-25.png)
-![Neovim editing](./iainsimmons_neovim_ui_2025-03-25.png)
+  ![Neovim dashboard](./iainsimmons_neovim_2025-03-25.png)
+  ![Neovim editing](./iainsimmons_neovim_ui_2025-03-25.png)
 
-## ⚙️ dotfiles
+  ## ⚙️ dotfiles
 
-Looking for the rest of my dotfiles? You can find those over at [iainsimmons/dotfiles](https://github.com/iainsimmons/dotfiles).
+  Looking for the rest of my dotfiles? You can find those over at [iainsimmons/dotfiles](https://github.com/iainsimmons/dotfiles).
 
-## 🔧 Install instructions
+  ## 🔧 Install instructions
 
-> Install requires Neovim 0.11+. Always review the code before installing a configuration.
+  > Install requires Neovim 0.11+. Always review the code before installing a configuration.
 
-Clone the repository and install the plugins:
+  Clone the repository and install the plugins:
 
-```sh
-git clone git@github.com:iainsimmons/nvim-config ~/.config/iainsimmons/nvim-config
-```
+  ```sh
+  git clone git@github.com:iainsimmons/nvim-config ~/.config/iainsimmons/nvim-config
+  ```
 
-Open Neovim with this config:
+  Open Neovim with this config:
 
-```sh
-NVIM_APPNAME=iainsimmons/nvim-config/ nvim
-```
-
+  ```sh
+  NVIM_APPNAME=iainsimmons/nvim-config/ nvim
+  ```
+  
 ## 💤 Plugin manager
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
@@ -45,7 +45,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [kulala.nvim](https://github.com/mistweaverco/kulala.nvim)
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 - [lazydev.nvim](https://github.com/folke/lazydev.nvim)
-- [log-highlight.nvim](https://github.com/fei6409/log-highlight.nvim)
 - [lua-json5](https://github.com/Joakker/lua-json5)
 - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
@@ -73,7 +72,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [promise-async](https://github.com/kevinhwang91/promise-async)
 - [rainbow_csv](https://github.com/mechatroner/rainbow_csv)
-- [rayso.nvim](https://github.com/TobinPalmer/rayso.nvim)
 - [reactive.nvim](https://github.com/rasulomaroff/reactive.nvim)
 - [refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim)
 - [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
@@ -87,11 +85,12 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [wezterm-types](https://github.com/justinsgithub/wezterm-types)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 
-## Generating this README
+  ## Generating this README
 
-To generate this file:
+  To generate this file:
 
-1. Open Lazy (`:Lazy`)
-2. Put the cursor over a plugin name
-3. Press `<localleader>r` (`localleader` is set to `,` in my config)
-4. You should see a message "README.md succesfully generated"
+  1. Open Lazy (`:Lazy`)
+  2. Put the cursor over a plugin name
+  3. Press `<localleader>r` (`localleader` is set to `,` in my config)
+  4. You should see a message "README.md successfully generated"
+  

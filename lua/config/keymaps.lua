@@ -179,3 +179,8 @@ map("n", "<leader>cv", "ggVG", { silent = true, noremap = true, desc = "[V]isual
 -- execute line as lua
 map("n", "<leader>cx", "<CMD>.lua<CR>", { desc = "E[X]ecute line as Lua code" })
 map("v", "<leader>cx", "<CMD>lua<CR>", { desc = "E[X]ecute line as Lua code" })
+
+-- generate README
+map("n", "<leader>rm", function()
+  require("util.generate-readme").generate()
+end, { desc = "Generate README" })
