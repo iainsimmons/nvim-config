@@ -1,7 +1,8 @@
 # iainvim: Iain Simmons' Neovim configuration
 
-  ![Neovim dashboard](./iainsimmons_neovim_2025-03-25.png)
-  ![Neovim editing](./iainsimmons_neovim_ui_2025-03-25.png)
+  ![Neovim dashboard](./iainsimmons_neovim_dashboard_2025-09-28.png)
+  ![Neovim editing](./iainsimmons_neovim_editing_2025-09-28.png)
+  ![Neovim markdown](./iainsimmons_neovim_markdown_2025-09-28.png)
 
   ## ⚙️ dotfiles
 
