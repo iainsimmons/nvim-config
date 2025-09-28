@@ -312,25 +312,6 @@ return {
       desc = "Command History",
     },
     {
-      "<leader><space>",
-      function()
-        Snacks.picker.buffers({
-          format = function(item, picker)
-            local ret = {} ---@type snacks.picker.Highlight[]
-            ret[#ret + 1] = { Snacks.picker.util.align(tostring(item.idx), 3), "SnacksPickerBufNr" }
-            ret[#ret + 1] = { " " }
-            vim.list_extend(ret, Snacks.picker.format.filename(item, picker))
-            return ret
-          end,
-          matcher = {
-            fuzzy = false,
-          },
-        })
-      end,
-      desc = "Buffers",
-    },
-    -- -- find
-    {
       "<leader>fb",
       function()
         Snacks.picker.buffers()
