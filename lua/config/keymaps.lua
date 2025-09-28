@@ -193,3 +193,6 @@ map("i", "[]", "[]<left>", { desc = "Enter into square brackets" })
 map("i", '""', '""<left>', { desc = "Enter into double quotes" })
 map("i", "''", "''<left>", { desc = "Enter into single quotes" })
 map("i", "``", "``<left>", { desc = "Enter into backticks" })
+
+-- Insert line above
+map("i", "<S-Enter>", "<C-o>O", { desc = "Insert line above" })
