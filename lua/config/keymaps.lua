@@ -184,3 +184,12 @@ map("v", "<leader>cx", "<CMD>lua<CR>", { desc = "E[X]ecute line as Lua code" })
 map("n", "<leader>rm", function()
   require("util.generate-readme").generate()
 end, { desc = "Generate README" })
+
+-- Enter into middle of matching pairs when open and closing are typed
+map("i", "<>", "<><left>", { desc = "Enter into angled brackets" })
+map("i", "()", "()<left>", { desc = "Enter into round brackets" })
+map("i", "{}", "{}<left>", { desc = "Enter into curly brackets" })
+map("i", "[]", "[]<left>", { desc = "Enter into square brackets" })
+map("i", '""', '""<left>', { desc = "Enter into double quotes" })
+map("i", "''", "''<left>", { desc = "Enter into single quotes" })
+map("i", "``", "``<left>", { desc = "Enter into backticks" })

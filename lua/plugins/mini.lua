@@ -150,8 +150,6 @@ return { -- Collection of various small independent plugins/modules
       },
     })
 
-    require("mini.pairs").setup()
-
     -- toggle with gS
     require("mini.splitjoin").setup()
 
