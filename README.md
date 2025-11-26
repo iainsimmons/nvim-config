@@ -83,6 +83,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [undotree](https://github.com/mbbill/undotree)
 - [vim-sleuth](https://github.com/tpope/vim-sleuth)
+- [vscode-diff.nvim](https://github.com/esmuellert/vscode-diff.nvim)
 - [wezterm-types](https://github.com/justinsgithub/wezterm-types)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 
