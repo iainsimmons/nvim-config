@@ -81,7 +81,6 @@ return {
                 "javascriptreact",
                 "typescriptreact",
               },
-              start_hidden = true,
             },
           },
         }
