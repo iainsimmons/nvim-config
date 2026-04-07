@@ -196,3 +196,11 @@ map("i", "``", "``<left>", { desc = "Enter into backticks" })
 
 -- Insert line above
 map("i", "<S-Enter>", "<C-o>O", { desc = "Insert line above" })
+
+-- Load and toggle nvim.undotree if on Neovim v0.12+
+if vim.fn.has("nvim-0.12") == 1 then
+  vim.keymap.set("n", "<F5>", function()
+    vim.cmd.packadd("nvim.undotree")
+    vim.cmd("Undotree")
+  end, { desc = "Undotree toggle" })
+end
