@@ -8,48 +8,8 @@ return {
       { "<c-space>", desc = "Increment selection" },
       { "<bs>", desc = "Decrement selection", mode = "x" },
     },
-    config = function()
-      local opts = {
-        auto_install = true,
-        highlight = {
-          enable = true,
-          -- to disable slow treesitter highlight for large files
-          disable = function(_, buf)
-            local max_filesize = 100 * 1024 -- 100 KB
-            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-              return true
-            end
-          end,
-        },
-        indent = { enable = true },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<C-space>",
-            node_incremental = "<C-space>",
-            scope_incremental = false,
-            node_decremental = "<bs>",
-          },
-        },
-        textobjects = {
-          select = {
-            enable = true,
-
-            -- Automatically jump forward to textobj, similar to targets.vim
-            lookahead = true,
-          },
-          move = {
-            enable = true,
-            goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
-            goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
-            goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
-            goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
-          },
-        },
-      }
-      require("nvim-treesitter").setup(opts)
-      require("nvim-treesitter").install({
+    init = function()
+      local ensure_installed = {
         "astro",
         "bash",
         "css",
@@ -70,6 +30,20 @@ return {
         "typescript",
         "vim",
         "xml",
+      }
+      local already_installed = require("nvim-treesitter.config").get_installed()
+      local parsers_to_install = vim
+        .iter(ensure_installed)
+        :filter(function(parser)
+          return not vim.tbl_contains(already_installed, parser)
+        end)
+        :totable()
+      require("nvim-treesitter").install(parsers_to_install)
+    end,
+    config = function()
+      require("nvim-treesitter").setup({
+        -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
+        install_dir = vim.fn.stdpath("data") .. "/site",
       })
       -- Enable highlighting for all filetypes
       vim.api.nvim_create_autocmd("FileType", {
@@ -112,6 +86,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
     config = function()
       -- When in diff mode, we want to use the default
       -- vim text objects c & C instead of the treesitter ones.
