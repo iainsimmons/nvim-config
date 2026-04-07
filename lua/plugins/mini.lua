@@ -7,8 +7,12 @@ return { -- Collection of various small independent plugins/modules
       --
       -- Examples:
       --  - va)  - [V]isually select [A]round [)]parenthen
-      --  - yinq - [Y]ank [I]nside [N]ext [']quote
+      --  - yiNq - [Y]ank [I]nside [N]ext [']quote
       --  - ci'  - [C]hange [I]nside [']quote
+      mappings = {
+        around_next = "aN",
+        inside_next = "iN",
+      },
       n_lines = 500,
     })
 

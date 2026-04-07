@@ -204,3 +204,31 @@ if vim.fn.has("nvim-0.12") == 1 then
     vim.cmd("Undotree")
   end, { desc = "Undotree toggle" })
 end
+
+-- Enable incremental selection keymaps
+local function increment_selection()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_parent(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
+end
+
+local function decrement_selection()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_child(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
+end
+
+vim.keymap.set("n", "<C-Space>", function()
+  vim.cmd("normal! v")
+  increment_selection()
+end, { desc = "Increment selection" })
+vim.keymap.set("n", "<BS>", function()
+  vim.cmd("normal! v")
+  decrement_selection()
+end, { desc = "Increment selection" })
+vim.keymap.set({ "x", "o" }, "<C-Space>", increment_selection, { desc = "Increment selection" })
+vim.keymap.set({ "x", "o" }, "<BS>", decrement_selection, { desc = "Decrement selection" })
