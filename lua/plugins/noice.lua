@@ -73,6 +73,22 @@ return {
           col = "100%",
         },
       },
+      cmdline_popup = {
+        position = {
+          row = "95%",
+          col = "50%",
+        },
+        size = {
+          width = "auto",
+          height = "auto",
+        },
+        border = {
+          style = "rounded",
+        },
+        win_options = {
+          winblend = 0,
+        },
+      },
     },
   },
   keys = {

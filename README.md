@@ -81,7 +81,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [text-case.nvim](https://github.com/johmsalas/text-case.nvim)
 - [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
-- [undotree](https://github.com/mbbill/undotree)
 - [vim-freemarker](https://github.com/andreshazard/vim-freemarker)
 - [vim-sleuth](https://github.com/tpope/vim-sleuth)
 - [vscode-diff.nvim](https://github.com/esmuellert/vscode-diff.nvim)
