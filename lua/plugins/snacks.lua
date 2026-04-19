@@ -126,6 +126,9 @@ return {
             ["H"] = { "preview_scroll_left", mode = { "n", "i" } },
             ["L"] = { "preview_scroll_right", mode = { "n", "i" } },
           },
+          wo = {
+            virtualedit = "all",
+          },
         },
       },
     },
