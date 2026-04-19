@@ -4,10 +4,6 @@ return {
     branch = "main", -- last release is way too old and doesn't work on Windows
     build = ":TSUpdate",
     lazy = false,
-    keys = {
-      { "<c-space>", desc = "Increment selection" },
-      { "<bs>", desc = "Decrement selection", mode = "x" },
-    },
     init = function()
       local ensure_installed = {
         "astro",
@@ -70,46 +66,85 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
-    opts = function()
+    event = { "BufReadPost", "BufNewFile" },
+    opts = { mode = "cursor", max_lines = 3 },
+    config = function()
       local tsc = require("treesitter-context")
-      Snacks.toggle({
-        name = "Treesitter Context",
-        get = tsc.enabled,
-        set = function(state)
-          if state then
-            tsc.enable()
-          else
-            tsc.disable()
-          end
-        end,
-      }):map("<leader>ut")
-      return { mode = "cursor", max_lines = 3 }
+      Snacks.toggle
+        .new({
+          id = "treesitter_context",
+          name = "Treesitter Context",
+          get = tsc.enabled,
+          set = function(state)
+            if state then
+              tsc.enable()
+            else
+              tsc.disable()
+            end
+          end,
+        })
+        :map([[\t]])
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     branch = "main",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
-      -- When in diff mode, we want to use the default
-      -- vim text objects c & C instead of the treesitter ones.
-      local move = require("nvim-treesitter.textobjects.move") ---@type table<string,fun(...)>
-      local configs = require("nvim-treesitter.configs")
-      for name, fn in pairs(move) do
-        if name:find("goto") == 1 then
-          move[name] = function(q, ...)
-            if vim.wo.diff then
-              local config = configs.get_module("textobjects.move")[name] ---@type table<string,string>
-              for key, query in pairs(config or {}) do
-                if q == query and key:find("[%]%[][cC]") then
-                  vim.cmd("normal! " .. key)
-                  return
-                end
-              end
-            end
-            return fn(q, ...)
-          end
-        end
-      end
+      require("nvim-treesitter-textobjects").setup({
+        select = {
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
+          -- You can choose the select mode (default is charwise 'v')
+          --
+          -- Can also be a function which gets passed a table with the keys
+          -- * query_string: eg '@function.inner'
+          -- * method: eg 'v' or 'o'
+          -- and should return the mode ('v', 'V', or '<c-v>') or a table
+          -- mapping query_strings to modes.
+          selection_modes = {
+            ["@parameter.outer"] = "v", -- charwise
+            ["@function.outer"] = "V", -- linewise
+            -- ['@class.outer'] = '<c-v>', -- blockwise
+          },
+          -- If you set this to `true` (default is `false`) then any textobject is
+          -- extended to include preceding or succeeding whitespace. Succeeding
+          -- whitespace has priority in order to act similarly to eg the built-in
+          -- `ap`.
+          --
+          -- Can also be a function which gets passed a table with the keys
+          -- * query_string: eg '@function.inner'
+          -- * selection_mode: eg 'v'
+          -- and should return true of false
+          include_surrounding_whitespace = false,
+        },
+      })
+
+      -- select keymaps
+      vim.keymap.set({ "x", "o" }, "am", function()
+        require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+      end, { desc = "method/function" })
+      vim.keymap.set({ "x", "o" }, "im", function()
+        require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+      end, { desc = "method/function" })
+      vim.keymap.set({ "x", "o" }, "ac", function()
+        require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+      end, { desc = "class" })
+      vim.keymap.set({ "x", "o" }, "ic", function()
+        require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+      end, { desc = "class" })
+
+      -- swap keymaps
+      vim.keymap.set("n", "<leader>csa", function()
+        require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+      end, { desc = "Swap next parameter" })
+      vim.keymap.set("n", "<leader>csA", function()
+        require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.outer")
+      end, { desc = "Swap previous parameter" })
+      require("which-key").add({
+        mode = { "n", "v" },
+        { "<leader>cs", group = "+Swap", icon = " " },
+      })
     end,
   },
   {

@@ -57,7 +57,10 @@ return { -- Collection of various small independent plugins/modules
       silent = false,
     })
 
-    require("mini.bracketed").setup()
+    require("mini.bracketed").setup({
+      -- disable file keymaps for ]f and [f
+      file = { suffix = "" },
+    })
 
     require("mini.comment").setup({
       options = {
