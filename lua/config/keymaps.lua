@@ -222,13 +222,13 @@ local function decrement_selection()
   end
 end
 
-vim.keymap.set("n", "]]", function()
+vim.keymap.set("n", "<C-Space>", function()
   vim.cmd("normal! v")
   increment_selection()
 end, { desc = "Increment selection" })
-vim.keymap.set("n", "[[", function()
+vim.keymap.set("n", "<BS>", function()
   vim.cmd("normal! v")
   decrement_selection()
 end, { desc = "Decrement selection" })
-vim.keymap.set({ "x", "o" }, "]]", increment_selection, { desc = "Increment selection" })
-vim.keymap.set({ "x", "o" }, "[[", decrement_selection, { desc = "Decrement selection" })
+vim.keymap.set({ "x", "o" }, "<C-Space>", increment_selection, { desc = "Increment selection" })
+vim.keymap.set({ "x", "o" }, "<BS>", decrement_selection, { desc = "Decrement selection" })
