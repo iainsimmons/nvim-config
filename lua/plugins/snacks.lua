@@ -285,22 +285,6 @@ return {
     },
     -- picker
     {
-      "<leader>,",
-      function()
-        ---@class snacks.picker
-        ---@field smart fun(opts?: snacks.picker.smart.Config|{}): snacks.Picker
-        Snacks.picker.smart({ multi = { "buffers", "files" }, hidden = true })
-      end,
-      desc = "Smart Picker",
-    },
-    {
-      "<leader>/",
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = "Grep",
-    },
-    {
       "<leader>:",
       function()
         Snacks.picker.command_history()
@@ -313,37 +297,6 @@ return {
         Snacks.picker.buffers()
       end,
       desc = "Buffers",
-    },
-    {
-      "<leader>fc",
-      function()
-        ---@diagnostic disable-next-line: assign-type-mismatch
-        Snacks.picker.files({ cwd = vim.fn.stdpath("config"), hidden = true })
-      end,
-      desc = "Find Config File",
-    },
-    {
-      "<leader>fl",
-      function()
-        ---@class snacks.picker
-        ---@field lazy fun(opts?: snacks.picker.Config|{}): snacks.Picker
-        Snacks.picker.lazy()
-      end,
-      desc = "Find Lazy plugin spec",
-    },
-    {
-      "<leader>ff",
-      function()
-        Snacks.picker.files({ hidden = true })
-      end,
-      desc = "Find Files",
-    },
-    {
-      "<leader>fg",
-      function()
-        Snacks.picker.git_files({ hidden = true })
-      end,
-      desc = "Find Git Files",
     },
     -- -- git
     {
@@ -381,14 +334,6 @@ return {
         Snacks.picker.grep()
       end,
       desc = "Grep",
-    },
-    {
-      "<leader>sw",
-      function()
-        Snacks.picker.grep_word()
-      end,
-      desc = "Visual selection or word",
-      mode = { "n", "x" },
     },
     -- -- search
     {
@@ -488,13 +433,6 @@ return {
         Snacks.picker.qflist()
       end,
       desc = "Quickfix List",
-    },
-    {
-      "<leader>sR",
-      function()
-        Snacks.picker.recent()
-      end,
-      desc = "Recent",
     },
     {
       "<leader>sr",
