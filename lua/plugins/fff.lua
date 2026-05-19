@@ -9,6 +9,9 @@ return {
       enabled = false,
       show_scores = true,
     },
+    layout = {
+      prompt_position = "top",
+    },
   },
   lazy = false, -- the plugin lazy-initialises itself
   keys = {
