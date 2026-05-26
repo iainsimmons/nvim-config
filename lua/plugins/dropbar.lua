@@ -247,6 +247,14 @@ return {
         sources = function()
           return { smart_path, mini_diff_stats, lsp_diagnostics }
         end,
+        update_events = {
+          buf = {
+            "OptionSet",
+            "FileChangedShellPost",
+            "TextChanged",
+            "ModeChanged",
+          },
+        },
       },
     })
   end,
