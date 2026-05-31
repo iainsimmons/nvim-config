@@ -49,6 +49,7 @@ return {
       graphql = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
       handlebars = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
       svelte = { "prettierd", "prettier", stop_after_first = true },
+      astro = { "prettierd", "prettier" },
       xml = { "oxfmt", "xmlformatter" },
       rss = { "oxfmt", "xmlformatter" },
       python = { "isort", "black" },
