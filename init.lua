@@ -67,6 +67,12 @@ vim.opt.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 
+-- Use osc52 for clipboard
+local termfeatures = vim.g.termfeatures or {}
+termfeatures.osc52 = false
+vim.g.termfeatures = termfeatures
+vim.g.clipboard = "osc52"
+
 -- additional options
 require("config.options")
 
