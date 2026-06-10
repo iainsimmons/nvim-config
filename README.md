@@ -1,8 +1,9 @@
 # iainvim: Iain Simmons' Neovim configuration
 
-![Neovim dashboard](./iainsimmons_neovim_dashboard_2025-11-23.png)
-![Neovim editing](./iainsimmons_neovim_editing_2025-09-28.png)
-![Neovim markdown](./iainsimmons_neovim_markdown_2025-09-28.png)
+![Neovim dashboard](./iainsimmons_neovim_dashboard_2026-06-10.png)
+![Neovim file picker](./iainsimmons_neovim_file_picker_2026-06-10.png)
+![Neovim editing](./iainsimmons_neovim_editing_2026-06-10.png)
+![Neovim markdown](./iainsimmons_neovim_markdown_2026-06-10.png)
 
 ## ⚙️ dotfiles
 
@@ -38,6 +39,7 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [csvview.nvim](https://github.com/hat0uma/csvview.nvim)
 - [dev-tools.nvim](https://github.com/yarospace/dev-tools.nvim)
 - [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim)
+- [fff.nvim](https://github.com/dmtrKovalenko/fff.nvim)
 - [fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [flash.nvim](https://github.com/folke/flash.nvim)
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
@@ -75,7 +77,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [reactive.nvim](https://github.com/rasulomaroff/reactive.nvim)
 - [refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim)
 - [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
-- [smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
 - [snipe.nvim](https://github.com/leath-dub/snipe.nvim)
 - [text-case.nvim](https://github.com/johmsalas/text-case.nvim)
@@ -84,7 +85,6 @@ NVIM_APPNAME=iainsimmons/nvim-config/ nvim
 - [vim-freemarker](https://github.com/andreshazard/vim-freemarker)
 - [vim-sleuth](https://github.com/tpope/vim-sleuth)
 - [vscode-diff.nvim](https://github.com/esmuellert/vscode-diff.nvim)
-- [wezterm-types](https://github.com/justinsgithub/wezterm-types)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ## Generating this README
