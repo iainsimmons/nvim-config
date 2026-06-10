@@ -11,7 +11,7 @@ Looking for the rest of my dotfiles? You can find those over at [iainsimmons/dot
 
 ## 🔧 Install instructions
 
-> Install requires Neovim 0.11+. Always review the code before installing a configuration.
+> Install requires Neovim 0.12+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 

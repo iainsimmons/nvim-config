@@ -5,9 +5,10 @@ function M.generate()
   local file_content = {
     [[# iainvim: Iain Simmons' Neovim configuration
 
-![Neovim dashboard](./iainsimmons_neovim_dashboard_2025-11-23.png)
-![Neovim editing](./iainsimmons_neovim_editing_2025-09-28.png)
-![Neovim markdown](./iainsimmons_neovim_markdown_2025-09-28.png)
+![Neovim dashboard](./iainsimmons_neovim_dashboard_2026-06-10.png)
+![Neovim file picker](./iainsimmons_neovim_file_picker_2026-06-10.png)
+![Neovim editing](./iainsimmons_neovim_editing_2026-06-10.png)
+![Neovim markdown](./iainsimmons_neovim_markdown_2026-06-10.png)
 
 ## ⚙️ dotfiles
 
@@ -15,7 +16,7 @@ Looking for the rest of my dotfiles? You can find those over at [iainsimmons/dot
 
 ## 🔧 Install instructions
 
-> Install requires Neovim 0.11+. Always review the code before installing a configuration.
+> Install requires Neovim 0.12+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
