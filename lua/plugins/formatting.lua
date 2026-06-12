@@ -26,6 +26,11 @@ return {
         args = { "--stdin-filepath", "$FILENAME" },
         stdin = true,
       },
+      kulala = {
+        command = "kulala-fmt",
+        args = { "format", "$FILENAME" },
+        stdin = false,
+      },
     },
     formatters_by_ft = {
       lua = { "stylua" },
@@ -53,6 +58,7 @@ return {
       xml = { "oxfmt", "xmlformatter" },
       rss = { "oxfmt", "xmlformatter" },
       python = { "isort", "black" },
+      http = { "kulala" },
     },
   },
   config = function(_, opts)
