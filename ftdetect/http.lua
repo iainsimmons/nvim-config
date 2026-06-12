@@ -1,9 +1,3 @@
-vim.filetype.add({
-  extension = {
-    http = "http",
-  },
-})
-
 local wk = require("which-key")
 wk.add({
   mode = { "n", "v" },
