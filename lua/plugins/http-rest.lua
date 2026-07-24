@@ -48,7 +48,7 @@ return {
       -- display mode: possible values: "split", "float"
       display_mode = "split",
       -- split direction: possible values: "above", "right", "below", "left"
-      split_direction = "right",
+      split_direction = "below",
       -- window options to override win_config: width/height/split/vertical.., buffer/window options
       win_opts = { bo = {}, wo = {} }, ---@type kulala.ui.win_config
       -- default view: "body" or "headers" or "headers_body" or "verbose" or fun(response: Response)
@@ -229,5 +229,16 @@ return {
       ]]
 
     kulala_keymaps_prefix = "",
+    treesitter = {
+      -- enable/disable kulala.nvim own
+      -- handling of tree-sitter parser and queries for HTTP scripts
+      -- like downloading, building, and installing the parser and queries.
+      -- disable to manage the parser and queries yourself.
+      enable = true,
+      -- path to tree-sitter CLI, if not in PATH
+      -- if enable is false, this is not used
+      -- required for building the parser from the included grammar
+      cli_path = "tree-sitter",
+    },
   },
 }

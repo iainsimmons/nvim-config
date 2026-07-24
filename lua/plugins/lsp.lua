@@ -3,19 +3,12 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for neovim
-      { "williamboman/mason.nvim", config = true },
-      "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
-
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { "j-hui/fidget.nvim", opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       "saghen/blink.cmp",
-      -- Allows extra capabilities provided by nvim-cmp
-      -- "hrsh7th/cmp-nvim-lsp",
     },
     config = vim.schedule_wrap(function()
       --  This function gets run when an LSP attaches to a particular buffer.
@@ -67,7 +60,8 @@ return {
       -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       -- Enable the following language servers
-      --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
+      --  Feel free to add/remove any LSPs that you want here.
+      --  Make sure they are installed via nvpm.
       --
       --  Add any additional override configuration in the following tables. Available keys are:
       --  - cmd (table): Override the default command used to start the server
@@ -165,45 +159,6 @@ return {
           },
         },
       }
-
-      -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
-      --  other tools, you can run
-      --    :Mason
-      --
-      --  You can press `g?` for help in this menu
-      require("mason").setup()
-
-      -- You can add other tools here that you want Mason to install
-      -- for you, so that they are available from within Neovim.
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        "astro-language-server",
-        "cbfmt",
-        "css-lsp",
-        "css-variables-language-server",
-        "emmet-ls",
-        "eslint-lsp",
-        "glint",
-        "html-lsp",
-        "json-lsp",
-        "kulala-fmt",
-        "lemminx",
-        "lua-language-server",
-        "markdownlint",
-        "marksman",
-        "prettierd",
-        "shfmt",
-        "stylua",
-        "svelte-language-server",
-        "tailwindcss-language-server",
-        "typescript-language-server",
-        "xmlformatter",
-        "yaml-language-server",
-      })
-      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
-      require("mason-lspconfig").setup()
 
       for server_name, config in pairs(servers) do
         vim.lsp.config(server_name, {

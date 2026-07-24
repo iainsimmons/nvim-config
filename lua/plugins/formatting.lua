@@ -35,7 +35,6 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       fish = { "fish_indent" },
-      sh = { "shfmt" },
       javascript = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
       javascriptreact = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
       typescript = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
@@ -57,7 +56,6 @@ return {
       astro = { "prettierd", "prettier" },
       xml = { "oxfmt", "xmlformatter" },
       rss = { "oxfmt", "xmlformatter" },
-      python = { "isort", "black" },
       http = { "kulala" },
     },
   },
