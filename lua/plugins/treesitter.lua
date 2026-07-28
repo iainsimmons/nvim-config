@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
     if lang and pcall(vim.treesitter.language.add, lang) then
       pcall(vim.treesitter.start, args.buf, lang)
       vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      if lang == "kulala_ui" then vim.cmd("TSContext disable") end
     end
   end,
 })
