@@ -158,6 +158,17 @@ return {
             workingDirectories = { mode = "auto" },
           },
         },
+        astro = {},
+        cssls = {},
+        css_variables = {},
+        glint = {},
+        html = {},
+        jsonls = {},
+        lemminx = {},
+        marksman = {},
+        stylua = {},
+        svelte = {},
+        tailwindcss = {},
       }
 
       for server_name, config in pairs(servers) do
@@ -166,6 +177,7 @@ return {
           settings = config,
           filetypes = (config or {}).filetypes,
         })
+        vim.lsp.enable(server_name)
       end
     end),
   },
