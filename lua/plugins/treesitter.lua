@@ -7,15 +7,13 @@ end
 
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
-    -- Enable highlighting and indentation for all filetypes
+    -- Enable highlighting for all filetypes
     local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
     if lang and pcall(vim.treesitter.language.add, lang) then
       -- Only start treesitter when the parser ships highlight queries; otherwise
       -- fall back to the built-in syntax highlighting (e.g. fish)
       if vim.treesitter.query.get(lang, "highlights") then
         pcall(vim.treesitter.start, args.buf, lang)
-        -- set indentation
-        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         -- disable Treesitter Context for Kulala UI buffers
         if lang == "kulala_ui" then
           vim.cmd("TSContext disable")
