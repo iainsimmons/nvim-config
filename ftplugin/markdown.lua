@@ -34,3 +34,6 @@ vim.keymap.set("v", "<leader>cl", function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "x", false)
   vim.cmd("startinsert")
 end, { desc = "Insert link" })
+
+-- insert ellipsis instead of 3 periods
+vim.keymap.set("i", "...", "…")
