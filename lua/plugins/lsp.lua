@@ -158,7 +158,28 @@ return {
             workingDirectories = { mode = "auto" },
           },
         },
-        astro = {},
+        ---@brief
+        --- https://github.com/withastro/astro/tree/main/packages/language-tools/language-server
+        ---@type vim.lsp.Config
+        astro = {
+          cmd = function(dispatchers, config)
+            local cmd = "astro-ls"
+            if (config or {}).root_dir then
+              local local_cmd = vim.fs.joinpath(config.root_dir, "node_modules/.bin", cmd)
+              if vim.fn.executable(local_cmd) == 1 then
+                cmd = local_cmd
+              end
+            end
+            return vim.lsp.rpc.start({ cmd, "--stdio" }, dispatchers)
+          end,
+          filetypes = { "astro" },
+          root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+          init_options = {
+            typescript = {
+              tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+            },
+          },
+        },
         cssls = {},
         css_variables = {},
         glint = {},
@@ -172,11 +193,12 @@ return {
       }
 
       for server_name, config in pairs(servers) do
-        vim.lsp.config(server_name, {
-          capabilities = capabilities,
-          settings = config,
-          filetypes = (config or {}).filetypes,
-        })
+        vim.lsp.config(
+          server_name,
+          vim.tbl_deep_extend("force", {
+            capabilities = capabilities,
+          }, config)
+        )
         vim.lsp.enable(server_name)
       end
     end),
