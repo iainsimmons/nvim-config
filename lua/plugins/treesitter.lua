@@ -1,29 +1,69 @@
--- -- Read from site/parsers/*.{so,dylib,dll} to get the list of installed parsers
--- -- and remove the path and extension to get the parser names
--- local installed_parsers = vim.fn.globpath(vim.fn.stdpath("data") .. "/site/parser", "*.{so,dylib,dll}", true, true)
--- for i, parser in ipairs(installed_parsers) do
---   installed_parsers[i] = vim.fn.fnamemodify(parser, ":t:r")
--- end
---
--- vim.api.nvim_create_autocmd("FileType", {
---   callback = function(args)
---     -- Enable highlighting for all filetypes
---     local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
---     if lang and pcall(vim.treesitter.language.add, lang) then
---       -- Only start treesitter when the parser ships highlight queries; otherwise
---       -- fall back to the built-in syntax highlighting (e.g. fish)
---       if vim.treesitter.query.get(lang, "highlights") then
---         pcall(vim.treesitter.start, args.buf, lang)
---         -- disable Treesitter Context for Kulala UI buffers
---         if lang == "kulala_ui" then
---           vim.cmd("TSContext disable")
---         end
---       end
---     end
---   end,
--- })
-
 return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    enabled = true,
+    branch = "main", -- last release is way too old and doesn't work on Windows
+    build = ":TSUpdate",
+    lazy = false,
+    init = function()
+      local ensure_installed = {
+        "astro",
+        "bash",
+        "css",
+        "diff",
+        "gitignore",
+        "javascript",
+        "jsdoc",
+        "json",
+        "json5",
+        "jsx",
+        "lua",
+        "luadoc",
+        "markdown",
+        "markdown_inline",
+        "regex",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "xml",
+      }
+      local already_installed = require("nvim-treesitter.config").get_installed()
+      local parsers_to_install = vim
+        .iter(ensure_installed)
+        :filter(function(parser)
+          return not vim.tbl_contains(already_installed, parser)
+        end)
+        :totable()
+      require("nvim-treesitter").install(parsers_to_install)
+    end,
+    config = function()
+      require("nvim-treesitter").setup({
+        -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
+        install_dir = vim.fn.stdpath("data") .. "/site",
+      })
+      -- Enable highlighting for all filetypes
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+          if lang and pcall(vim.treesitter.language.add, lang) then
+            pcall(vim.treesitter.start, args.buf, lang)
+          end
+        end,
+      })
+
+      -- Enable treesitter indentation
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+          if lang and lang ~= "ruby" and pcall(vim.treesitter.language.add, lang) then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter-context",
     event = { "BufReadPost", "BufNewFile" },
@@ -103,7 +143,7 @@ return {
       end, { desc = "Swap previous parameter" })
       require("which-key").add({
         mode = { "n", "v" },
-        { "<leader>cs", group = "+Swap", icon = " " },
+        { "<leader>cs", group = "+Swap", icon = " " },
       })
     end,
   },

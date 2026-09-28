@@ -207,7 +207,7 @@ return {
     "yarospace/dev-tools.nvim",
     event = "BufReadPost",
     dependencies = {
-      { "nvim-treesitter/nvim-treesitter", enabled = false },
+      "nvim-treesitter/nvim-treesitter",
     },
   },
 }
