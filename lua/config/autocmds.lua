@@ -120,6 +120,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
+-- Source/reload skhd config after saving
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*skhd/skhdrc" },
+  command = "execute 'silent !skhd --reload'",
+})
+
 -- Autocmd to track macro recording, And redraw statusline, which trigger
 -- macro function of mini.statusline
 vim.api.nvim_create_autocmd("RecordingEnter", {
